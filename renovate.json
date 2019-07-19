@@ -1,0 +1,19 @@
+{
+  "extends": [
+    "config:base",
+    ":disableRateLimiting",
+    ":automergeMinor",
+    ":rebaseStalePrs"
+  ],
+  "rangeStrategy": "bump",
+  "packageRules": [
+    {
+      "depTypeList": ["peerDependencies"],
+      "rangeStrategy": "widen"
+    },
+    {
+      "depTypeList": ["devDependencies"],
+      "rangeStrategy": "pin"
+    }
+  ]
+}
