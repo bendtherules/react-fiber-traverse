@@ -21,23 +21,19 @@ describe("Basic traverse test", () => {
 
   it("should work for depth=1", () => {
     const rootNode = mountAndGetRootNode(CDepth1, container);
-
     const mockCallback = jest.fn();
 
     traverse(rootNode, mockCallback);
 
-    // The mock function is called twice
     expect(mockCallback.mock.calls.length).toBe(1);
   });
 
   it("should work for depth=2", () => {
     const rootNode = mountAndGetRootNode(CDepth2, container);
-
     const mockCallback = jest.fn();
 
     traverse(rootNode, mockCallback);
 
-    // The mock function is called twice
     expect(mockCallback.mock.calls.length).toBe(2);
   });
 });
