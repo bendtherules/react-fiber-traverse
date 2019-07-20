@@ -1,10 +1,10 @@
 // import * as PropTypes from "prop-types";
 import * as React from "react";
 
-class CDepth2 extends React.Component {
+class CDepth1 extends React.Component {
   render() {
-    return <div></div>;
+    return null;
   }
 }
 
-export default CDepth2;
+export default CDepth1;
