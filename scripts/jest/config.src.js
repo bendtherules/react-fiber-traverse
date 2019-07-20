@@ -6,7 +6,7 @@ module.exports = {
   rootDir: process.cwd(),
   roots: ['<rootDir>/test'],
   setupFiles: ['<rootDir>/scripts/jest/setupEnvironment.ts'],
-  setupFilesAfterEnv: ['<rootDir>/scripts/jest/setupJest.ts'],
+  setupFilesAfterEnv: ['<rootDir>/scripts/jest/setupJest.ts', 'jest-plugin-must-assert'],
   testMatch: ['<rootDir>/test/*.spec.ts?(x)'],
   transform: { '^.+\\.(js|tsx?)$': 'ts-jest' }
 }
