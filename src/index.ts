@@ -18,7 +18,6 @@ function traverse(node: FiberNode, fn: (node: FiberNode) => any) {
   // }
 
   fn.call(null, node);
-  console.log('Going through node with ', node);
 
   if (node.child !== null) {
     traverse(node.child, fn);
