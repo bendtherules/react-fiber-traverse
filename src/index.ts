@@ -1,10 +1,5 @@
 // import { isNodeSimple } from './utils';
-
-export interface FiberNode {
-  child: FiberNode | null;
-  sibling: FiberNode | null;
-  // Add type
-}
+import {FiberNode} from './mocked-types';
 
 function traverse(node: FiberNode, fn: (node: FiberNode) => any) {
   // if (node.child) {
