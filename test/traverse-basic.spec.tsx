@@ -7,10 +7,11 @@ import { traverse } from "../src";
 import { mountAndGetRootNode } from "./utils/mount-in-enzyme";
 import CDepth1 from "./sample-components/depth-1-simple";
 import CDepth2 from "./sample-components/depth-2-simple";
+import CDepth5 from "./sample-components/depth-5-simple";
 
-describe("Basic traverse test", () => {
+describe("traverse", () => {
   let container: HTMLDivElement;
-  
+
   beforeEach(() => {
     container = document.body.appendChild(document.createElement("div"));
   });
@@ -19,21 +20,34 @@ describe("Basic traverse test", () => {
     document.body.removeChild(container);
   });
 
-  it("should work for depth=1", () => {
-    const rootNode = mountAndGetRootNode(CDepth1, container);
-    const mockCallback = jest.fn();
+  describe("basic", () => {
+    it("should work for depth=1", () => {
+      const rootNode = mountAndGetRootNode(CDepth1, container);
+      const mockCallback = jest.fn();
 
-    traverse(rootNode, mockCallback);
+      traverse(rootNode, mockCallback);
 
-    expect(mockCallback.mock.calls.length).toBe(1);
-  });
+      // Can't be zero, in any case
+      expect(mockCallback.mock.calls.length).not.toBe(0);
+      expect(mockCallback.mock.calls.length).toBe(1);
+    });
 
-  it("should work for depth=2", () => {
-    const rootNode = mountAndGetRootNode(CDepth2, container);
-    const mockCallback = jest.fn();
+    it("should work for depth=2", () => {
+      const rootNode = mountAndGetRootNode(CDepth2, container);
+      const mockCallback = jest.fn();
 
-    traverse(rootNode, mockCallback);
+      traverse(rootNode, mockCallback);
 
-    expect(mockCallback.mock.calls.length).toBe(2);
+      expect(mockCallback.mock.calls.length).toBe(2);
+    });
+
+    it("should work for depth=5", () => {
+      const rootNode = mountAndGetRootNode(CDepth5, container);
+      const mockCallback = jest.fn();
+
+      traverse(rootNode, mockCallback);
+
+      expect(mockCallback.mock.calls.length).toBe(5);
+    });
   });
 });
