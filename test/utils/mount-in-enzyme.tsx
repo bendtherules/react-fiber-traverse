@@ -1,9 +1,9 @@
 import * as React from "react";
 import { mount } from "enzyme";
-import { FiberNode } from '../../src/mocked-types';
+import { FiberNode } from "../../src/mocked-types";
 
 export class RootNodeNotFoundError extends Error {
-  static message = `Couldn't find root node. This might occur if render has become async`
+  static message = `Couldn't find root node. This might occur if render has become async`;
   constructor() {
     super(RootNodeNotFoundError.message);
     this.name = "RootNodeNotFoundError";
@@ -11,7 +11,7 @@ export class RootNodeNotFoundError extends Error {
 }
 
 export function mountAndGetRootNode(
-  SomeComponentClass: typeof React.Component,
+  SomeComponentClass: (typeof React.Component) | string,
   container: HTMLElement
 ) {
   const rootRef = React.createRef<React.Component>();
@@ -23,7 +23,8 @@ export function mountAndGetRootNode(
     throw new RootNodeNotFoundError();
   }
 
-  const rootNode = ((rootRef.current as any)._reactInternalFiber as FiberNode).child;
+  const rootNode = ((rootRef.current as any)._reactInternalFiber as FiberNode)
+    .child;
 
   if (rootNode === null) {
     throw new RootNodeNotFoundError();
