@@ -5,7 +5,7 @@ function isHtmlLike(node: FiberNode): node is FiberNodeisHTMLLike {
 }
 
 function isNotHtmlLike(node: FiberNode): node is Exclude<FiberNode, FiberNodeisHTMLLike> {
-    return (typeof node.type === "string") || node.type === null;
+    return !isHtmlLike(node);
 }
 
 export { isHtmlLike, isNotHtmlLike };
