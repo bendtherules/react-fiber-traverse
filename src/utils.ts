@@ -1,11 +1,20 @@
-import { FiberNode, FiberNodeisHTMLLike } from './mocked-types';
+import * as React from 'react';
+import { FiberNode, FiberNodeisHTMLLike, FiberNodeForFunctionComponent, FiberNodeForComponentClass } from './mocked-types';
 
-function isHtmlLike(node: FiberNode): node is FiberNodeisHTMLLike {
+function isNodeHtmlLike(node: FiberNode): node is FiberNodeisHTMLLike {
     return (typeof node.type === "string") || node.type === null;
 }
 
-function isNotHtmlLike(node: FiberNode): node is Exclude<FiberNode, FiberNodeisHTMLLike> {
-    return !isHtmlLike(node);
+function isNodeNotHtmlLike(node: FiberNode): node is Exclude<FiberNode, FiberNodeisHTMLLike> {
+    return !isNodeHtmlLike(node);
 }
 
-export { isHtmlLike, isNotHtmlLike };
+function isNodeFunctionComponent(node: FiberNode): node is FiberNodeForFunctionComponent {
+    return isNodeNotHtmlLike(node) && node.stateNode === null;
+}
+
+function isNodeComponentClass(node: FiberNode): node is FiberNodeForComponentClass {
+    return isNodeNotHtmlLike(node) && (node.stateNode instanceof React.Component);
+}
+
+export { isNodeHtmlLike, isNodeNotHtmlLike, isNodeFunctionComponent, isNodeComponentClass };

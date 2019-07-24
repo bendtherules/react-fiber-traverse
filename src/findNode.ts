@@ -1,5 +1,5 @@
 import { FiberNode } from "./mocked-types";
-import { isNotHtmlLike } from "./utils";
+import { isNodeNotHtmlLike } from "./utils";
 
 function findNodeByComponentName(
   node: FiberNode | null,
@@ -9,8 +9,7 @@ function findNodeByComponentName(
     return null;
   }
 
-  if (isNotHtmlLike(node) && node.type.name === expectedName) {
-    // console.debug("Found node " + node);
+  if (isNodeNotHtmlLike(node) && node.type.name === expectedName) {
     return node;
   }
 
@@ -38,8 +37,7 @@ function findNodeByComponent(
     return null;
   }
 
-  if (isNotHtmlLike(node) && node.type === expectedClassOrFunction) {
-    // console.debug("Found node " + node);
+  if (isNodeNotHtmlLike(node) && node.type === expectedClassOrFunction) {
     return node;
   }
 
@@ -67,8 +65,7 @@ function findNodeByComponentInstance(
     return null;
   }
 
-  if (isNotHtmlLike(node) && node.stateNode === expectedClassInstance) {
-    // console.debug("Found node " + node);
+  if (isNodeNotHtmlLike(node) && node.stateNode === expectedClassInstance) {
     return node;
   }
 
