@@ -34,6 +34,7 @@
     "test:src:watch": "npm run test:src -- --watch",
     "test:umd": "jest --config ./scripts/jest/config.umd.js",
     "test:umdprod": "jest --config ./scripts/jest/config.umdprod.js",
+    "test:src:debug": "node --inspect ./node_modules/jest/bin/jest.js  --config ./scripts/jest/config.src.js",
     "version": "run-s test changelog authors && git add ."
   },
   "repository": {
