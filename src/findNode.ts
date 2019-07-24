@@ -10,7 +10,7 @@ function findNodeByComponentName(
   }
 
   if (isNotHtmlLike(node) && node.type.name === expectedName) {
-    console.debug("Found node " + node);
+    // console.debug("Found node " + node);
     return node;
   }
 
@@ -39,7 +39,7 @@ function findNodeByComponent(
   }
 
   if (isNotHtmlLike(node) && node.type === expectedClassOrFunction) {
-    console.debug("Found node " + node);
+    // console.debug("Found node " + node);
     return node;
   }
 
@@ -68,7 +68,7 @@ function findNodeByComponentInstance(
   }
 
   if (isNotHtmlLike(node) && node.stateNode === expectedClassInstance) {
-    console.debug("Found node " + node);
+    // console.debug("Found node " + node);
     return node;
   }
 
