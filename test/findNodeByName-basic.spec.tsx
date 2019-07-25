@@ -1,12 +1,14 @@
 import * as React from "react";
+
+import { FiberNodeForComponentClass } from "../src/mocked-types";
+
 // Import stuff from src
 import { findNodeByComponentName } from "../src";
+import { mountAndGetRootNode } from "./utils/mount-in-enzyme";
+import getWrappedComponent from "./utils/getWrappedComponent";
 
 // Import test helpers and sample components
-import { mountAndGetRootNode } from "./utils/mount-in-enzyme";
 import CDepth1 from "./sample-components/depth-1-simple";
-import { FiberNodeForComponentClass } from "../src/mocked-types";
-import getWrappedComponent from "./utils/getWrappedComponent";
 import FnDepth1 from "./sample-components/depth-1-fn-simple";
 
 describe("findNodeByComponentName", () => {
