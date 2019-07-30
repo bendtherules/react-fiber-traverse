@@ -94,5 +94,32 @@ describe("findNodeByComponentName", () => {
       expect((found as FiberNodeForComponentClass).stateNode).toBe(null);
       expect((found as FiberNodeForComponentClass).type.name).toBe(Fn2.name);
     });
+
+    it("should work for 5th-level function name", () => {
+      function Fn1() {
+        return (
+          <div>
+            <div>
+              <span></span>
+              <Fn2></Fn2>
+            </div>
+          </div>
+        );
+      }
+
+      function Fn2() {
+        return <a href="google.com">Fn2 here</a>;
+      }
+
+      const WrappedC = getWrappedComponent(Fn1);
+      const rootNode = mountAndGetRootNode(WrappedC, container);
+
+      const found = findNodeByComponentName(rootNode, Fn2.name);
+
+      // Shouldn't be null, or other falsy value
+      expect(found).not.toBeFalsy();
+      expect((found as FiberNodeForComponentClass).stateNode).toBe(null);
+      expect((found as FiberNodeForComponentClass).type.name).toBe(Fn2.name);
+    });
   });
 });
