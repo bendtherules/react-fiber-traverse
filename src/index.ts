@@ -1,13 +1,13 @@
 import traverse from "./traverse";
 import {
   findNodeByComponent,
-  findNodeByComponentInstance,
+  findNodeByComponentRef,
   findNodeByComponentName
 } from "./findNode";
 
 export {
   traverse,
   findNodeByComponent,
-  findNodeByComponentInstance,
+  findNodeByComponentRef,
   findNodeByComponentName
 };

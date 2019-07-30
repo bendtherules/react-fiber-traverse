@@ -57,7 +57,7 @@ function findNodeByComponent(
   return null;
 }
 
-function findNodeByComponentInstance(
+function findNodeByComponentRef(
   node: FiberNode | null,
   expectedClassInstance: React.Component
 ): FiberNode | null {
@@ -70,13 +70,13 @@ function findNodeByComponentInstance(
   }
 
   {
-    const returnVal = findNodeByComponentInstance(node.child, expectedClassInstance);
+    const returnVal = findNodeByComponentRef(node.child, expectedClassInstance);
     if (returnVal !== null) {
       return returnVal;
     }
   }
   {
-    const returnVal = findNodeByComponentInstance(node.sibling, expectedClassInstance);
+    const returnVal = findNodeByComponentRef(node.sibling, expectedClassInstance);
     if (returnVal !== null) {
       return returnVal;
     }
@@ -85,4 +85,4 @@ function findNodeByComponentInstance(
   return null;
 }
 
-export { findNodeByComponentName, findNodeByComponent, findNodeByComponentInstance };
+export { findNodeByComponentName, findNodeByComponent, findNodeByComponentRef };
