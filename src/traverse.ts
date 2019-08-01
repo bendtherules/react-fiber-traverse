@@ -13,21 +13,50 @@ function traverse(node: FiberNode, fn: (node: FiberNode) => any) {
 }
 
 function* traverseGenerator(
-  node: FiberNode
-  // {
-  //   order = "pre"
-  // }: { order: "in" | "pre" | "post" }
+  node: FiberNode,
+  {
+    order = ["self", "child", "sibling"]
+  }: { order?: ["self", "child", "sibling"] } = {}
 ): IterableIterator<FiberNode> {
-  const { skipChild, skipSibling } = yield node;
+  let skipChild = false,
+    skipSibling = false;
 
-  if (!skipChild && node.child !== null) {
-    const nextNode = node.child;
-    yield* traverseGenerator(nextNode);
+  function* traverseSelf() {
+    const controlInput:
+      | { skipChild: boolean; skipSibling: boolean }
+      | undefined = yield node;
+
+    if (controlInput !== undefined) {
+      ({ skipChild = skipChild, skipSibling = skipSibling } = controlInput);
+    }
   }
 
-  if (!skipSibling && node.sibling !== null) {
-    const nextNode = node.sibling;
-    yield* traverseGenerator(nextNode);
+  function* traverseChild() {
+    if (!skipChild && node.child !== null) {
+      const nextNode = node.child;
+      yield* traverseGenerator(nextNode, { order });
+    }
+  }
+
+  function* traverseSibling() {
+    if (!skipSibling && node.sibling !== null) {
+      const nextNode = node.sibling;
+      yield* traverseGenerator(nextNode, { order });
+    }
+  }
+
+  const traverseMap = {
+    self: traverseSelf,
+    child: traverseChild,
+    sibling: traverseSibling
+  };
+
+  // For each item mentioned in order, find generator functions to run
+  const orderedGenerators = order.map((step) => traverseMap[step]).filter(tmp => tmp!==undefined);
+
+  // Now run each generator till end
+  for (const eachGen of orderedGenerators) {
+    yield* eachGen();
   }
 }
 
