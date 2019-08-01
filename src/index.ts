@@ -1,4 +1,4 @@
-import traverse from "./traverse";
+import { traverse, traverseGenerator } from "./traverse";
 import {
   findNodeByComponent,
   findNodeByComponentRef,
@@ -7,6 +7,7 @@ import {
 
 export {
   traverse,
+  traverseGenerator,
   findNodeByComponent,
   findNodeByComponentRef,
   findNodeByComponentName
