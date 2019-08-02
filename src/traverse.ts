@@ -16,7 +16,7 @@ function* traverseGenerator(
   node: FiberNode,
   {
     order = ["self", "child", "sibling"]
-  }: { order?: ["self", "child", "sibling"] } = {}
+  }: { order?: Array<"self"|"child"|"sibling"> } = {}
 ): IterableIterator<FiberNode> {
   let skipChild = false,
     skipSibling = false;
