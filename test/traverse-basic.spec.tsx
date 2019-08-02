@@ -4,7 +4,7 @@ import * as React from "react";
 import { traverse } from "../src";
 
 // Import test helpers and sample components
-import { mountAndGetRootNode } from "./utils/mount-in-enzyme";
+import { mountAndGetRootNode } from "./utils/mountInEnzyme";
 import CDepth1 from "./sample-components/depth-1-simple";
 import CDepth2 from "./sample-components/depth-2-simple";
 import CDepth5 from "./sample-components/depth-5-simple";

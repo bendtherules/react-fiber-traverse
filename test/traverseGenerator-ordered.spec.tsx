@@ -9,7 +9,7 @@ import * as React from "react";
 import { traverseGenerator } from "../src";
 
 // Import test helpers and sample components
-import { mountAndGetRootNode } from "./utils/mount-in-enzyme";
+import { mountAndGetRootNode } from "./utils/mountInEnzyme";
 // import getWrappedComponent from './utils/getWrappedComponent';
 import CDepth1 from "./sample-components/depth-1-simple";
 import { FiberNodeForFunctionComponent } from "../src/mocked-types";

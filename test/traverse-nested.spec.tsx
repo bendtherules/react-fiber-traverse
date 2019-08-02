@@ -4,7 +4,7 @@
 import { traverse } from "../src";
 
 // Import test helpers and sample components
-import { mountAndGetRootNode } from "./utils/mount-in-enzyme";
+import { mountAndGetRootNode } from "./utils/mountInEnzyme";
 import CDepth2Nested1 from "./sample-components/depth-2-nested-1";
 import CDepth3Nested1 from "./sample-components/depth-3-nested-1";
 import CDepth7Nested2 from "./sample-components/depth-7-nested-2";

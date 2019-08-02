@@ -4,7 +4,7 @@
 import { traverse } from "../src";
 
 // Import test helpers and sample components
-import { mountAndGetRootNode } from "./utils/mount-in-enzyme";
+import { mountAndGetRootNode } from "./utils/mountInEnzyme";
 
 describe("traverse", () => {
   let container: HTMLDivElement;

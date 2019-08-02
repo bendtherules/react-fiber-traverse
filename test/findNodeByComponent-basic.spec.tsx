@@ -4,7 +4,7 @@ import { FiberNodeForComponentClass } from "../src/mocked-types";
 
 // Import stuff from src
 import { findNodeByComponent } from "../src";
-import { mountAndGetRootNode } from "./utils/mount-in-enzyme";
+import { mountAndGetRootNode } from "./utils/mountInEnzyme";
 import getWrappedComponent from "./utils/getWrappedComponent";
 
 // Import test helpers and sample components
