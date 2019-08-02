@@ -13,7 +13,7 @@ import {
   FiberNodeForInstrinsicElement
 } from "../src/mocked-types";
 
-describe("traverse", () => {
+describe("traverseGenerator", () => {
   let container: HTMLDivElement;
 
   beforeEach(() => {
@@ -25,7 +25,7 @@ describe("traverse", () => {
   });
 
   describe("basic", () => {
-    it("should work for depth=1", () => {
+    it("should work for depth=1 class", () => {
       const rootNode = mountAndGetRootNode(CDepth1, container);
 
       const nodeIterator = traverseGenerator(rootNode);
@@ -33,21 +33,24 @@ describe("traverse", () => {
 
       // Can't be zero, in any case
       expect(nodes.length).not.toBe(0);
+      // Check that only one node is yielded
       expect(nodes.length).toBe(1);
     });
 
-    it("should work for depth=2", () => {
+    it("should work for depth=2 class", () => {
       const rootNode = mountAndGetRootNode(CDepth2, container);
 
       const nodeIterator = traverseGenerator(rootNode);
       const nodes = [...nodeIterator];
 
+      // Check that only 2 nodes are yielded
       expect(nodes.length).toBe(2);
+      // Check depth-based order (default order)
       expect((nodes[0] as FiberNodeForComponentClass).type).toBe(CDepth2);
       expect((nodes[1] as FiberNodeForInstrinsicElement).type).toBe("div");
     });
 
-    it("should work for depth=5", () => {
+    it("should work for depth=5 class", () => {
       const rootNode = mountAndGetRootNode(CDepth5, container);
 
       const nodeIterator = traverseGenerator(rootNode);
