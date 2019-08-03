@@ -1,6 +1,10 @@
 import * as React from "react";
 import { mount } from "enzyme";
-import { FiberNode } from "../../src/mocked-types";
+import { FiberNode, FiberNodeForComponentClass } from "../../src/mocked-types";
+import {
+  isConstructorFunctionComponent
+} from "../../src/utils";
+import getWrappedComponent from "./getWrappedComponent";
 
 export class RootNodeNotFoundError extends Error {
   static message = `Couldn't find root node. This might occur if render has become async`;
@@ -11,13 +15,21 @@ export class RootNodeNotFoundError extends Error {
 }
 
 export function mountAndGetRootNode(
-  SomeComponentClass: (typeof React.Component) | string,
+  SomeComponent: React.ComponentType,
   container: HTMLElement
-) {
+): FiberNode {
   const rootRef = React.createRef<React.Component>();
 
+  let ToMount = undefined;
+  // Wrap function components in ComponentClass to be able to set ref
+  if (isConstructorFunctionComponent(SomeComponent)) {
+    ToMount = getWrappedComponent(SomeComponent);
+  } else {
+    ToMount = SomeComponent;
+  }
+
   // TODO: later make this async as mount might be async and hence next steps will fail
-  mount(<SomeComponentClass ref={rootRef} />, { attachTo: container });
+  mount(<ToMount ref={rootRef} />, { attachTo: container });
 
   if (rootRef.current === null) {
     throw new RootNodeNotFoundError();
@@ -30,5 +42,10 @@ export function mountAndGetRootNode(
     throw new RootNodeNotFoundError();
   }
 
-  return rootNode;
+  // Unwrap function components to return expected root node
+  if (isConstructorFunctionComponent(SomeComponent)) {
+    return (rootNode as FiberNodeForComponentClass).child as FiberNode;
+  } else {
+    return rootNode;
+  }
 }
