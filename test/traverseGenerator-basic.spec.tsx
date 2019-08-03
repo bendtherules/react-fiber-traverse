@@ -10,7 +10,6 @@ import { traverseGenerator } from "../src";
 
 // Import test helpers and sample components
 import { mountAndGetRootNode } from "./utils/mountInEnzyme";
-import getWrappedComponent from './utils/getWrappedComponent';
 import CDepth1 from "./sample-components/depth-1-simple";
 import CDepth2 from "./sample-components/depth-2-simple";
 import CDepth5 from "./sample-components/depth-5-simple";
@@ -63,9 +62,7 @@ describe("traverseGenerator", () => {
     });
 
     it("should work for depth=1 function", () => {
-      const WrappedC = getWrappedComponent(FnDepth1);
-      const rootNode = mountAndGetRootNode(WrappedC, container)
-        .child as FiberNodeForFunctionComponent;
+      const rootNode = mountAndGetRootNode(FnDepth1, container);
 
       const nodeIterator = traverseGenerator(rootNode);
       const nodes = [...nodeIterator];
@@ -86,9 +83,7 @@ describe("traverseGenerator", () => {
         return <div>Fn2 here</div>;
       }
 
-      const WrappedC = getWrappedComponent(Fn1);
-      const rootNode = mountAndGetRootNode(WrappedC, container)
-        .child as FiberNodeForFunctionComponent;
+      const rootNode = mountAndGetRootNode(Fn1, container);
 
       const nodeIterator = traverseGenerator(rootNode);
       const nodes = [...nodeIterator];
@@ -113,9 +108,7 @@ describe("traverseGenerator", () => {
         return <div>Fn2 here</div>;
       }
 
-      const WrappedC = getWrappedComponent(Fn1);
-      const rootNode = mountAndGetRootNode(WrappedC, container)
-        .child as FiberNodeForFunctionComponent;
+      const rootNode = mountAndGetRootNode(Fn1, container);
 
       const nodeIterator = traverseGenerator(rootNode);
       const nodes = [...nodeIterator];

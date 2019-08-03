@@ -1,21 +1,19 @@
 import * as React from "react";
 
 // Import stuff from src
-// import {
-//   FiberNodeForComponentClass,
-//   FiberNodeForInstrinsicElement,
-//   FiberNodeForFunctionComponent
-// } from "../src/mocked-types";
+import {
+  FiberNodeForFunctionComponent,
+  FiberNodeForComponentClass
+} from "../src/mocked-types";
 import { traverseGenerator } from "../src";
 
 // Import test helpers and sample components
 import { mountAndGetRootNode } from "./utils/mountInEnzyme";
-// import getWrappedComponent from './utils/getWrappedComponent';
+import {
+  createClassComponents,
+  createFunctionComponents
+} from "./utils/createComponent";
 import CDepth1 from "./sample-components/depth-1-simple";
-import { FiberNodeForFunctionComponent } from "../src/mocked-types";
-// import CDepth2 from "./sample-components/depth-2-simple";
-// import CDepth5 from "./sample-components/depth-5-simple";
-// import FnDepth1 from './sample-components/depth-1-fn-simple';
 
 describe("traverseGenerator", () => {
   let container: HTMLDivElement;
@@ -155,7 +153,8 @@ describe("traverseGenerator", () => {
       expect(nodes.length).not.toBe(1);
     });
 
-    it("should work for depth=3 depth-first", () => {
+    it("should work for depth-first - class component", () => {
+      const [C2, C3, C4, C5] = createClassComponents(["C2", "C3", "C4", "C5"]);
       class C1 extends React.Component {
         render() {
           return (
@@ -170,18 +169,40 @@ describe("traverseGenerator", () => {
           );
         }
       }
-      function C2(props: { children?: any }) {
-        return props.children || null;
-      }
-      function C3(props: { children?: any }) {
-        return props.children || null;
-      }
-      function C4(props: { children?: any }) {
-        return props.children || null;
-      }
-      function C5(props: { children?: any }) {
-        return props.children || null;
-      }
+
+      const rootNode = mountAndGetRootNode(C1, container);
+
+      const nodeIterator = traverseGenerator(rootNode, {
+        order: ["self", "child", "sibling"]
+      });
+      const nodes = [...nodeIterator];
+
+      expect(nodes.length).toBe(5);
+      // Check depth-based order (default order)
+      expect(
+        nodes.map(tmpNode => (tmpNode as FiberNodeForComponentClass).type)
+      ).toEqual([C1, C2, C3, C4, C5]);
+    });
+
+    it("should work for depth-first - function component", () => {
+      const [C2, C3, C4, C5] = createFunctionComponents([
+        "C2",
+        "C3",
+        "C4",
+        "C5"
+      ]);
+      const C1 = function() {
+        return (
+          <React.Fragment>
+            <C2>
+              <C3 />
+            </C2>
+            <C4>
+              <C5 />
+            </C4>
+          </React.Fragment>
+        );
+      };
 
       const rootNode = mountAndGetRootNode(C1, container);
 
