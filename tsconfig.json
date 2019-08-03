@@ -7,5 +7,10 @@
     "declaration": false,
     "declarationDir": null,
     "module": "commonjs",
+  },
+  "typedocOptions": {
+    "mode": "modules",
+    "out": "docs",
+    "theme": "markdown",
   }
 }
