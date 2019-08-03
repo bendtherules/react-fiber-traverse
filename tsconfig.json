@@ -7,6 +7,5 @@
     "declaration": false,
     "declarationDir": null,
     "module": "commonjs",
-    "target": "es6",
   }
 }
