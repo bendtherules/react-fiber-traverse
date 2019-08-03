@@ -1,6 +1,10 @@
 import * as React from "react";
 
-export type FiberNode = FiberNodeForComponentClass | FiberNodeForFunctionComponent | FiberNodeForInstrinsicElement | FiberNodeForTextNode;
+export type FiberNode =
+  | FiberNodeForComponentClass
+  | FiberNodeForFunctionComponent
+  | FiberNodeForInstrinsicElement
+  | FiberNodeForTextNode;
 
 export interface FiberNodeForFunctionComponent {
   child: FiberNode | null;
@@ -52,4 +56,6 @@ export interface FiberNodeForTextNode {
   stateNode: Text;
 }
 
-export type FiberNodeisHTMLLike  = FiberNodeForInstrinsicElement | FiberNodeForTextNode;
+export type FiberNodeisHTMLLike =
+  | FiberNodeForInstrinsicElement
+  | FiberNodeForTextNode;

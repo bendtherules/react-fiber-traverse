@@ -1,5 +1,5 @@
 function FnDepth1() {
-    return null;
+  return null;
 }
 
 export default FnDepth1;

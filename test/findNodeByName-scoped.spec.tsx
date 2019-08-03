@@ -85,7 +85,7 @@ describe("findNodeByComponentName", () => {
       const rootNode = mountAndGetRootNode(WrappedC, container);
 
       const foundFnDepth1 = findNodeByComponentName(rootNode, FnDepth1.name);
-      const foundInner = findNodeByComponentName(foundFnDepth1, 'someName');
+      const foundInner = findNodeByComponentName(foundFnDepth1, "someName");
 
       expect(foundInner).toBeFalsy();
       expect(foundInner).toBe(null);
@@ -96,7 +96,12 @@ describe("findNodeByComponentName", () => {
         return <Fn2 />;
       }
       function Fn2() {
-        return <div>Fn2 here<Fn3/></div>;
+        return (
+          <div>
+            Fn2 here
+            <Fn3 />
+          </div>
+        );
       }
       function Fn3() {
         return <div>Fn3 here</div>;

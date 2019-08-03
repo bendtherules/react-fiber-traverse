@@ -16,7 +16,7 @@ function* traverseGenerator(
   node: FiberNode,
   {
     order = ["self", "child", "sibling"]
-  }: { order?: Array<"self"|"child"|"sibling"> } = {}
+  }: { order?: Array<"self" | "child" | "sibling"> } = {}
 ): IterableIterator<FiberNode> {
   let skipChild = false,
     skipSibling = false;
@@ -52,7 +52,9 @@ function* traverseGenerator(
   };
 
   // For each item mentioned in order, find generator functions to run
-  const orderedGenerators = order.map((step) => traverseMap[step]).filter(tmp => tmp!==undefined);
+  const orderedGenerators = order
+    .map(step => traverseMap[step])
+    .filter(tmp => tmp !== undefined);
 
   // Now run each generator till end
   for (const eachGen of orderedGenerators) {

@@ -1,4 +1,4 @@
-import { createPrettyHtmlMatchers } from 'jest-prettyhtml-matchers'
+import { createPrettyHtmlMatchers } from "jest-prettyhtml-matchers";
 
 expect.extend(
   createPrettyHtmlMatchers({
@@ -6,4 +6,4 @@ expect.extend(
     sortAttributes: true,
     wrapAttributes: true
   })
-)
+);

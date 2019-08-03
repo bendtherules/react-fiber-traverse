@@ -17,7 +17,7 @@ describe("Component", () => {
   it("should render correctly", () => {
     const rootRef = React.createRef<C>();
 
-    rootRef.current && rootRef.current
+    rootRef.current && rootRef.current;
 
     wrapper = mount(<C text="text" ref={rootRef} />, { attachTo: container });
     expect(wrapper.html()).toMatchSnapshot();

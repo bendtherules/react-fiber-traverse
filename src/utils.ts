@@ -28,7 +28,9 @@ function isNodeComponentClass(
   return isNodeNotHtmlLike(node) && node.stateNode instanceof React.Component;
 }
 
-function isConstructorHtmlLike(ctr: React.ElementType): ctr is Exclude<React.ElementType, React.ComponentType> {
+function isConstructorHtmlLike(
+  ctr: React.ElementType
+): ctr is Exclude<React.ElementType, React.ComponentType> {
   if (typeof ctr === "string" || ctr === null) {
     return true;
   }

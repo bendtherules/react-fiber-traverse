@@ -48,7 +48,10 @@ function findNodeByComponent(
     }
   }
   {
-    const returnVal = findNodeByComponent(node.sibling, expectedClassOrFunction);
+    const returnVal = findNodeByComponent(
+      node.sibling,
+      expectedClassOrFunction
+    );
     if (returnVal !== null) {
       return returnVal;
     }
@@ -76,7 +79,10 @@ function findNodeByComponentRef(
     }
   }
   {
-    const returnVal = findNodeByComponentRef(node.sibling, expectedClassInstance);
+    const returnVal = findNodeByComponentRef(
+      node.sibling,
+      expectedClassInstance
+    );
     if (returnVal !== null) {
       return returnVal;
     }

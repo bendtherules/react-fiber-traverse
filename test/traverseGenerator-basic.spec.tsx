@@ -13,7 +13,7 @@ import { mountAndGetRootNode } from "./utils/mountInEnzyme";
 import CDepth1 from "./sample-components/depth-1-simple";
 import CDepth2 from "./sample-components/depth-2-simple";
 import CDepth5 from "./sample-components/depth-5-simple";
-import FnDepth1 from './sample-components/depth-1-fn-simple';
+import FnDepth1 from "./sample-components/depth-1-fn-simple";
 
 describe("traverseGenerator", () => {
   let container: HTMLDivElement;

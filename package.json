@@ -15,6 +15,7 @@
     "bundle": "rollup -c",
     "changelog": "github_changelog_generator --no-issues --header-label \"# Changelog\" --future-release v$npm_package_version",
     "check:format": "prettier --list-different \"**/*.{js,ts,tsx}\"",
+    "fix:format": "prettier --write \"**/*.{js,ts,tsx}\"",
     "check:types": "tsc --noEmit",
     "clean": "run-p clean:*",
     "clean:compiled": "del compiled",

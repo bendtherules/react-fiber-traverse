@@ -9,7 +9,7 @@ function createFunctionComponent(name?: string): React.FunctionComponent {
     if (props.children !== undefined) {
       return <React.Fragment>{props.children}</React.Fragment>;
     } else {
-      return null
+      return null;
     }
   };
 
@@ -31,7 +31,7 @@ function createClassComponent(name?: string): React.ComponentClass {
       if (this.props.children !== undefined) {
         return this.props.children;
       } else {
-        return null
+        return null;
       }
     }
   };
@@ -113,7 +113,7 @@ function createClassComponents(
 
     return returnArr;
   }
-  
+
   // Handle other invalid inputs
   throw new TypeError("Input is not valid");
 }
