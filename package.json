@@ -41,8 +41,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "post-commit": "npm run fix:format",
-      "pre-push": "run-s check:* lint test:src"
+      "post-commit": "npm run fix:format"
     }
   },
   "repository": {
