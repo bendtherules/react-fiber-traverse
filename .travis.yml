@@ -3,4 +3,4 @@ notifications:
   email: false
 script:
   - npm run test
-  - $(npm bin)/codecov
+  - npx codecov
