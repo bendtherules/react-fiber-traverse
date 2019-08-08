@@ -1,5 +1,13 @@
 import * as React from "react";
 
+export interface FiberNodeDOMContainer extends Element {
+  _reactRootContainer: {
+    _internalRoot: {
+      current: FiberNode | null;
+    };
+  };
+}
+
 export type FiberNode =
   | FiberNodeForComponentClass
   | FiberNodeForFunctionComponent

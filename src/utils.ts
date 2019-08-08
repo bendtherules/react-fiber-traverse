@@ -3,7 +3,8 @@ import {
   FiberNode,
   FiberNodeisHTMLLike,
   FiberNodeForFunctionComponent,
-  FiberNodeForComponentClass
+  FiberNodeForComponentClass,
+  FiberNodeDOMContainer
 } from "./mocked-types";
 
 function isNodeHtmlLike(node: FiberNode): node is FiberNodeisHTMLLike {
@@ -60,6 +61,38 @@ function isConstructorFunctionComponent(
   return !isConstructorComponentClass(ctr);
 }
 
+function doesElementContainRootFiberNode(
+  element: Element
+): element is FiberNodeDOMContainer {
+  return element.hasOwnProperty("_reactRootContainer");
+}
+
+/**
+ * Util to find root React Fiber node from html DOM tree.
+ * Returns null, if not found.SHould be called after ReactDOM.render is finished.
+ * @param startElement Starting DOM element to seach from.
+ * If not found, it checks inside its child nodes. Defaults to document.body
+ */
+function getRootFiberNodeFromDOM(startElement?: Element): FiberNode | null {
+  if (startElement === undefined) {
+    startElement = document.body;
+  }
+
+  if (doesElementContainRootFiberNode(startElement)) {
+    return startElement._reactRootContainer._internalRoot.current;
+  }
+
+  let returnFiberNode = null;
+  for (const childNode of startElement.children) {
+    returnFiberNode = getRootFiberNodeFromDOM(childNode);
+    if (returnFiberNode !== null) {
+      return returnFiberNode;
+    }
+  }
+
+  return returnFiberNode;
+}
+
 export {
   isNodeHtmlLike,
   isNodeNotHtmlLike,
@@ -67,5 +100,6 @@ export {
   isNodeComponentClass,
   isConstructorHtmlLike,
   isConstructorComponentClass,
-  isConstructorFunctionComponent
+  isConstructorFunctionComponent,
+  getRootFiberNodeFromDOM
 };
