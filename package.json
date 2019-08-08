@@ -3,8 +3,8 @@
   "version": "0.0.3",
   "description": "Traverse and other utils on top of React fiber tree",
   "main": "dist/index.js",
-  "module": "dist/react-fiber-traverse.esm.js",
-  "jsnext:main": "dist/react-fiber-traverse.esm.js",
+  "module": "dist/esm/index.js",
+  "jsnext:main": "dist/esm/index.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
@@ -108,6 +108,7 @@
     "rollup-plugin-babel": "4.3.3",
     "rollup-plugin-commonjs": "10.0.1",
     "rollup-plugin-filesize": "6.1.1",
+    "rollup-plugin-multi-input": "^1.0.2",
     "rollup-plugin-node-resolve": "5.2.0",
     "rollup-plugin-replace": "2.2.0",
     "rollup-plugin-size-snapshot": "0.9.0",

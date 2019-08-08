@@ -2,9 +2,10 @@ import babel from "rollup-plugin-babel";
 import commonjs from "rollup-plugin-commonjs";
 import nodeResolve from "rollup-plugin-node-resolve";
 import replace from "rollup-plugin-replace";
-import { sizeSnapshot } from "rollup-plugin-size-snapshot";
+// import { sizeSnapshot } from "rollup-plugin-size-snapshot";
 import sourcemaps from "rollup-plugin-sourcemaps";
 import { terser } from "rollup-plugin-terser";
+import multiInput from "rollup-plugin-multi-input";
 import pkg from "./package.json";
 
 const CJS_DEV = "CJS_DEV";
@@ -13,7 +14,7 @@ const ES = "ES";
 const UMD_DEV = "UMD_DEV";
 const UMD_PROD = "UMD_PROD";
 
-const input = "./compiled/index.js";
+const input = ["compiled/*.js"];
 
 const getGlobals = bundleType => {
   const baseGlobals = {
@@ -124,7 +125,7 @@ const getPlugins = bundleType => [
     )
   }),
   sourcemaps(),
-  sizeSnapshot(),
+  // sizeSnapshot(),
   isProduction(bundleType) &&
     terser({
       sourcemap: true,
@@ -136,16 +137,15 @@ const getPlugins = bundleType => [
       warnings: true,
       ecma: 5,
       toplevel: false
-    })
+    }),
+  multiInput({ relative: "compiled/" })
 ];
 
 const getCjsConfig = bundleType => ({
   input,
   external: getExternal(bundleType),
   output: {
-    file: `dist/react-fiber-traverse.cjs.${
-      isProduction(bundleType) ? "production" : "development"
-    }.js`,
+    dir: `dist/cjs-${isProduction(bundleType) ? "production" : "development"}`,
     format: "cjs",
     sourcemap: true
   },
@@ -156,7 +156,7 @@ const getEsConfig = () => ({
   input,
   external: getExternal(ES),
   output: {
-    file: pkg.module,
+    dir: `dist/esm`,
     format: "es",
     sourcemap: true
   },
@@ -167,9 +167,7 @@ const getUmdConfig = bundleType => ({
   input,
   external: getExternal(bundleType),
   output: {
-    file: `dist/react-fiber-traverse.umd.${
-      isProduction(bundleType) ? "production" : "development"
-    }.js`,
+    dir: `dist/umd-${isProduction(bundleType) ? "production" : "development"}`,
     format: "umd",
     globals: getGlobals(bundleType),
     name: "reactFiberTraverse",
@@ -181,7 +179,7 @@ const getUmdConfig = bundleType => ({
 export default [
   getCjsConfig(CJS_DEV),
   getCjsConfig(CJS_PROD),
-  getEsConfig(),
-  getUmdConfig(UMD_DEV),
-  getUmdConfig(UMD_PROD)
+  getEsConfig()
+  // getUmdConfig(UMD_DEV),
+  // getUmdConfig(UMD_PROD)
 ];

@@ -1,7 +1,7 @@
 "use strict";
 
 if (process.env.NODE_ENV === "production") {
-  module.exports = require("./react-fiber-traverse.cjs.production.js");
+  module.exports = require("./cjs-production/index.js");
 } else {
-  module.exports = require("./react-fiber-traverse.cjs.development.js");
+  module.exports = require("./cjs-development/index.js");
 }
