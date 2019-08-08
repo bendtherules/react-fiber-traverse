@@ -1,3 +1,3 @@
 module.exports = {
-  "*.{js,jsx,ts,tsx}": "run-s check:* lint"
+  "*.{js,jsx,ts,tsx}": () => "run-s check:* lint"
 };
