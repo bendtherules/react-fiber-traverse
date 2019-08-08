@@ -9,11 +9,21 @@
 
 ## Basic Usage
 
-```jsx
-import React from 'react'
+```ts
 import { render } from 'react-dom'
 
-render(, document.getElementById('root'))
+import { findNodeByComponentName } from 'react-fiber-traverse'
+import { getRootFiberNodeFromDOM } from 'react-fiber-traverse/utils'
+
+const rootElement = document.getElementById('root');
+render(<App>, 'root');
+
+const rootFiberNode = getRootFiberNodeFromDOM(rootElement);
+
+const someFiberNode = findNodeByComponentName(rootFiberNode, 'SomeComponentName'); // <- returns FiberNode for first usage of 'SomeComponentName'
+// Say, if SomeComponentName renders (<div>Some text</div>)
+someFiberNode.stateNode // <- returns reference to the div
+someFiberNode.stateNode.innerText // <- returns 'Some text'
 ```
 
 ## Live Examples
@@ -50,7 +60,6 @@ For the non-minified development version, make sure you have already included:
 
 - [`React`](https://unpkg.com/react/umd/react.development.js)
 - [`ReactDOM`](https://unpkg.com/react-dom/umd/react-dom.development.js)
-- [`PropTypes`](https://unpkg.com/prop-types/prop-types.js)
 
 For the minified production version, make sure you have already included:
 
