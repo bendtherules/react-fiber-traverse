@@ -1,6 +1,6 @@
 {
   "name": "react-fiber-traverse",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Traverse and other utils on top of React fiber tree",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
