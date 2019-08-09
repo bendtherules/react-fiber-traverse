@@ -1,7 +1,12 @@
 import * as React from "react";
 import { mount } from "enzyme";
-import { FiberNode, FiberNodeForComponentClass } from "../../src/mocked-types";
-import { isConstructorFunctionComponent } from "../../src/utils";
+import {
+  FiberNode,
+  FiberNodeForComponentClass,
+} from "../../src/mocked-types";
+import {
+  isConstructorComponentClass
+} from "../../src/utils";
 import getWrappedComponent from "./getWrappedComponent";
 
 export class RootNodeNotFoundError extends Error {
@@ -13,14 +18,14 @@ export class RootNodeNotFoundError extends Error {
 }
 
 export function mountAndGetRootNode(
-  SomeComponent: React.ComponentType,
+  SomeComponent: React.ElementType,
   container: HTMLElement
 ): FiberNode {
   const rootRef = React.createRef<React.Component>();
 
-  let ToMount = undefined;
+  let ToMount: React.ComponentClass | undefined = undefined;
   // Wrap function components in ComponentClass to be able to set ref
-  if (isConstructorFunctionComponent(SomeComponent)) {
+  if (!isConstructorComponentClass(SomeComponent)) {
     ToMount = getWrappedComponent(SomeComponent);
   } else {
     ToMount = SomeComponent;
@@ -41,7 +46,7 @@ export function mountAndGetRootNode(
   }
 
   // Unwrap function components to return expected root node
-  if (isConstructorFunctionComponent(SomeComponent)) {
+  if (!isConstructorComponentClass(SomeComponent)) {
     return (rootNode as FiberNodeForComponentClass).child as FiberNode;
   } else {
     return rootNode;
