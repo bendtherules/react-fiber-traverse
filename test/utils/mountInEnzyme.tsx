@@ -1,12 +1,7 @@
 import * as React from "react";
 import { mount } from "enzyme";
-import {
-  FiberNode,
-  FiberNodeForComponentClass,
-} from "../../src/mocked-types";
-import {
-  isConstructorComponentClass
-} from "../../src/utils";
+import { FiberNode, FiberNodeForComponentClass } from "../../src/mocked-types";
+import { isConstructorComponentClass } from "../../src/utils";
 import getWrappedComponent from "./getWrappedComponent";
 
 export class RootNodeNotFoundError extends Error {
