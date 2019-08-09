@@ -4,6 +4,10 @@ import * as React from "react";
 import { isNodeHtmlLike, isNodeNotHtmlLike } from "../src/utils";
 import { mountAndGetRootNode } from "./utils/mountInEnzyme";
 import { FiberNodeForInstrinsicElement } from "../src/mocked-types";
+import {
+  createFunctionComponent,
+  createClassComponent
+} from "./utils/createComponent";
 
 // Import test helpers and sample components
 
@@ -62,6 +66,32 @@ describe("utils", () => {
 
       const resultPositive = isNodeHtmlLike(circleNode);
       const resultNegative = isNodeNotHtmlLike(circleNode);
+
+      expect(resultPositive).not.toBeFalsy();
+      expect(resultPositive).toBe(true);
+      expect(resultNegative).toBeFalsy();
+      expect(resultNegative).toBe(false);
+    });
+
+    it("should not work for function component", () => {
+      const fn1 = createFunctionComponent("fn1");
+      const rootNode = mountAndGetRootNode(fn1, container);
+
+      const resultPositive = isNodeNotHtmlLike(rootNode);
+      const resultNegative = isNodeHtmlLike(rootNode);
+
+      expect(resultPositive).not.toBeFalsy();
+      expect(resultPositive).toBe(true);
+      expect(resultNegative).toBeFalsy();
+      expect(resultNegative).toBe(false);
+    });
+
+    it("should not work for class component", () => {
+      const C1 = createClassComponent("C1");
+      const rootNode = mountAndGetRootNode(C1, container);
+
+      const resultPositive = isNodeNotHtmlLike(rootNode);
+      const resultNegative = isNodeHtmlLike(rootNode);
 
       expect(resultPositive).not.toBeFalsy();
       expect(resultPositive).toBe(true);
