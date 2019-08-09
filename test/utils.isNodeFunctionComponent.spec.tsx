@@ -42,7 +42,7 @@ describe("utils", () => {
       expect(result).toBe(false);
     });
 
-    it("should work for html like component - div", () => {
+    it("should not work for html like component - div", () => {
       const rootNode = mountAndGetRootNode("div", container);
 
       const result = isNodeFunctionComponent(rootNode);
