@@ -7,6 +7,7 @@ import {
   FiberNodeDOMContainer
 } from "./mocked-types";
 
+// Support null in all of these
 function isNodeHtmlLike(node: FiberNode): node is FiberNodeisHTMLLike {
   return typeof node.type === "string" || node.type === null;
 }
@@ -106,5 +107,6 @@ export {
   isConstructorHtmlLike,
   isConstructorComponentClass,
   isConstructorFunctionComponent,
+  doesElementContainRootFiberNode,
   getRootFiberNodeFromDOM
 };
