@@ -53,6 +53,20 @@ describe("traverse", () => {
       expect((resultPositive as any).child.child.type).toBe(C1);
     });
 
+    it("should work without any element - default args", () => {
+      const C1 = createClassComponent("C1");
+      const containerInner = container.appendChild(
+        document.createElement("span")
+      );
+      mountAndGetRootNode(C1, containerInner);
+
+      const resultPositive = getRootFiberNodeFromDOM();
+
+      expect(resultPositive).not.toBeFalsy();
+      expect(resultPositive).not.toBe(null);
+      expect((resultPositive as any).child.child.type).toBe(C1);
+    });
+
     it("should not work for child element", () => {
       const C1 = createClassComponent("C1");
       const containerInner = container.appendChild(
