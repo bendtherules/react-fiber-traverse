@@ -58,7 +58,7 @@ function isConstructorComponentClass(
 function isConstructorFunctionComponent(
   ctr: React.ElementType | null
 ): ctr is React.FunctionComponent {
-  return !isConstructorComponentClass(ctr);
+  return typeof ctr === "function" && !isConstructorComponentClass(ctr);
 }
 
 function doesElementContainRootFiberNode(
