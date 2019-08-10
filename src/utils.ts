@@ -30,7 +30,7 @@ function isNodeComponentClass(
 }
 
 function isConstructorHtmlLike(
-  ctr: React.ElementType
+  ctr: React.ElementType | null
 ): ctr is Exclude<React.ElementType, React.ComponentType> {
   if (typeof ctr === "string" || ctr === null) {
     return true;
