@@ -64,7 +64,12 @@ function isConstructorFunctionComponent(
 function doesElementContainRootFiberNode(
   element: Element
 ): element is FiberNodeDOMContainer {
-  return element.hasOwnProperty("_reactRootContainer");
+  return (
+    element.hasOwnProperty("_reactRootContainer") &&
+    (element as (Element & {
+      _reactRootContainer: any;
+    }))._reactRootContainer.hasOwnProperty("_internalRoot")
+  );
 }
 
 /**
