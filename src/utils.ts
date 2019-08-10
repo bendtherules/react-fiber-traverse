@@ -31,7 +31,7 @@ function isNodeComponentClass(
 
 function isConstructorHtmlLike(
   ctr: React.ElementType | null
-): ctr is Exclude<React.ElementType, React.ComponentType> {
+): ctr is Exclude<React.ElementType | null, React.ComponentType> {
   if (typeof ctr === "string" || ctr === null) {
     return true;
   }
@@ -39,7 +39,7 @@ function isConstructorHtmlLike(
 }
 
 function isConstructorComponentClass(
-  ctr: React.ElementType
+  ctr: React.ElementType | null
 ): ctr is React.ComponentClass {
   if (isConstructorHtmlLike(ctr)) {
     return false;
@@ -56,7 +56,7 @@ function isConstructorComponentClass(
 }
 
 function isConstructorFunctionComponent(
-  ctr: React.ElementType
+  ctr: React.ElementType | null
 ): ctr is React.FunctionComponent {
   return !isConstructorComponentClass(ctr);
 }
