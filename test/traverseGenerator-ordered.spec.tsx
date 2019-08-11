@@ -26,7 +26,7 @@ describe("traverseGenerator", () => {
     document.body.removeChild(container);
   });
 
-  describe("basic", () => {
+  describe("ordered", () => {
     it("order doesn't matter for 1 node if self is present - case 1", () => {
       const rootNode = mountAndGetRootNode(CDepth1, container);
 
