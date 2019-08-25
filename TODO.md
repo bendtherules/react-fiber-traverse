@@ -9,3 +9,6 @@
    - .\_internalRoot is not present is 16.0.0 but present in 16.9.0
    - actual node is available 2 levels nested inside this root node
    - add testcase to run across all versions of React 16.0.0 (dev+prod) and above (because internals change)
+
+6. Make it work with older React versions
+7. Make it work with non React-DOM renderers
