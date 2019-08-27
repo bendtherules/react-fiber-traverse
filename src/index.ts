@@ -4,11 +4,13 @@ import {
   findNodeByComponentRef,
   findNodeByComponentName
 } from "./findNode";
+import * as Utils from "./utils";
 
 export {
   traverse,
   traverseGenerator,
   findNodeByComponent,
   findNodeByComponentRef,
-  findNodeByComponentName
+  findNodeByComponentName,
+  Utils
 };
