@@ -12,13 +12,12 @@
 ```ts
 import { render } from 'react-dom'
 
-import { findNodeByComponentName } from 'react-fiber-traverse'
-import { getRootFiberNodeFromDOM } from 'react-fiber-traverse/utils'
+import { findNodeByComponentName, Utils } from 'react-fiber-traverse'
 
 const rootElement = document.getElementById('root');
 render(<App>, 'root');
 
-const rootFiberNode = getRootFiberNodeFromDOM(rootElement);
+const rootFiberNode = Utils.getRootFiberNodeFromDOM(rootElement);
 
 const someFiberNode = findNodeByComponentName(rootFiberNode, 'SomeComponentName'); // <- returns FiberNode for first usage of 'SomeComponentName'
 // Say, if SomeComponentName renders (<div>Some text</div>)
