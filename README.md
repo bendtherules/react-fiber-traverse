@@ -10,28 +10,39 @@
 ## Basic Usage
 
 ```ts
-import { render } from 'react-dom'
+import React from "react";
+import { render } from "react-dom";
 
-import { findNodeByComponentName, Utils } from 'react-fiber-traverse'
+import { findNodeByComponentName, Utils } from "react-fiber-traverse";
 
-const rootElement = document.getElementById('root');
-render(<App>, 'root');
+// Sample component
+// Say, if SomeComponentName looks like this -
+function SomeComponentName() {
+  return <div>Some text</div>;
+}
 
+// Render component
+const rootElement = document.getElementById("root");
+render(<SomeComponentName />, rootElement);
+
+// Get root node
 const rootFiberNode = Utils.getRootFiberNodeFromDOM(rootElement);
 
-const someFiberNode = findNodeByComponentName(rootFiberNode, 'SomeComponentName'); // <- returns FiberNode for first usage of 'SomeComponentName'
-// Say, if SomeComponentName renders (<div>Some text</div>)
-someFiberNode.stateNode // <- returns reference to the div
-someFiberNode.stateNode.innerText // <- returns 'Some text'
+// Get component node
+const someFiberNode = findNodeByComponentName(
+  rootFiberNode,
+  "SomeComponentName"
+); // <- returns FiberNode for first usage of 'SomeComponentName'
+
+console.log(someFiberNode.child.stateNode); // <- returns reference to the div
+console.log(someFiberNode.child.stateNode.innerText); // <- returns 'Some text'
+
 ```
 
 ## Live Examples
 
-- [Basic Usage](https://codesandbox.io/)
-- [API Example](https://codesandbox.io/)
-- [UMD Build (Development)](https://codesandbox.io/)
-- [UMD Build (Production)](https://codesandbox.io/)
-
+- [Basic Usage](https://codesandbox.io/s/react-example-x82zk?expanddevtools=1&fontsize=14)
+<!-- 
 ## API
 
 **Props**
@@ -42,7 +53,7 @@ someFiberNode.stateNode.innerText // <- returns 'Some text'
 **Example**
 
 ```jsx
-```
+``` -->
 
 ## Installation
 
