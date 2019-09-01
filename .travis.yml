@@ -1,15 +1,27 @@
 language: node_js
-env:
-- REACT_V=react@16.0.x REACT_DOM_V=react-dom@16.0.x
-- REACT_V=react@16.1.x REACT_DOM_V=react-dom@16.1.x
-- REACT_V=react@16.2.x REACT_DOM_V=react-dom@16.2.x
-- REACT_V=react@16.3.x REACT_DOM_V=react-dom@16.3.x
-- REACT_V=react@16.4.x REACT_DOM_V=react-dom@16.4.x
-- REACT_V=react@16.5.x REACT_DOM_V=react-dom@16.5.x
-- REACT_V=react@16.6.x REACT_DOM_V=react-dom@16.6.x
-- REACT_V=react@16.7.x REACT_DOM_V=react-dom@16.7.x
-- REACT_V=react@16.8.x REACT_DOM_V=react-dom@16.8.x
-- REACT_V=react@16.9.x REACT_DOM_V=react-dom@16.9.x
+matrix:
+  include:
+  - name: "react 16.0.x"
+    env: REACT_V=react@16.0.x REACT_DOM_V=react-dom@16.0.x
+  - name: "react 16.1.x"
+    env: REACT_V=react@16.1.x REACT_DOM_V=react-dom@16.1.x
+  - name: "react 16.2.x"
+    env: REACT_V=react@16.2.x REACT_DOM_V=react-dom@16.2.x
+  - name: "react 16.3.x"
+    env: REACT_V=react@16.3.x REACT_DOM_V=react-dom@16.3.x
+  - name: "react 16.4.x"
+    env: REACT_V=react@16.4.x REACT_DOM_V=react-dom@16.4.x
+  - name: "react 16.5.x"
+    env: REACT_V=react@16.5.x REACT_DOM_V=react-dom@16.5.x
+  - name: "react 16.6.x"
+    env: REACT_V=react@16.6.x REACT_DOM_V=react-dom@16.6.x
+  - name: "react 16.7.x"
+    env: REACT_V=react@16.7.x REACT_DOM_V=react-dom@16.7.x
+  - name: "react 16.8.x"
+    env: REACT_V=react@16.8.x REACT_DOM_V=react-dom@16.8.x
+  - name: "react 16.9.x"
+    env: REACT_V=react@16.9.x REACT_DOM_V=react-dom@16.9.x
+
 notifications:
   email: false
 
