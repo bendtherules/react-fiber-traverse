@@ -1,6 +1,23 @@
 language: node_js
+env:
+- REACT-V=react@16.0.x REACT-DOM-V=react-dom@16.0.x
+- REACT-V=react@16.1.x REACT-DOM-V=react-dom@16.1.x
+- REACT-V=react@16.2.x REACT-DOM-V=react-dom@16.2.x
+- REACT-V=react@16.3.x REACT-DOM-V=react-dom@16.3.x
+- REACT-V=react@16.4.x REACT-DOM-V=react-dom@16.4.x
+- REACT-V=react@16.5.x REACT-DOM-V=react-dom@16.5.x
+- REACT-V=react@16.6.x REACT-DOM-V=react-dom@16.6.x
+- REACT-V=react@16.7.x REACT-DOM-V=react-dom@16.7.x
+- REACT-V=react@16.8.x REACT-DOM-V=react-dom@16.8.x
+- REACT-V=react@16.9.x REACT-DOM-V=react-dom@16.9.x
 notifications:
   email: false
+
+# Install reqd react and react-dom version for each matrix
+before_script:
+  - echo $REACT-V $REACT-DOM-V # log react and react-dom versions
+  - npm i --no-save $REACT-V $REACT-DOM-V  # install them
+
 script:
   - npm run test
   - npx codecov
