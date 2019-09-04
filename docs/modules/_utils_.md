@@ -8,6 +8,8 @@
 
 ### Functions
 
+* [doesElementContainRootFiberNode](_utils_.md#doeselementcontainrootfibernode)
+* [getRootFiberNodeFromDOM](_utils_.md#getrootfibernodefromdom)
 * [isConstructorComponentClass](_utils_.md#isconstructorcomponentclass)
 * [isConstructorFunctionComponent](_utils_.md#isconstructorfunctioncomponent)
 * [isConstructorHtmlLike](_utils_.md#isconstructorhtmllike)
@@ -18,17 +20,52 @@
 
 ## Functions
 
-###  isConstructorComponentClass
+###  doesElementContainRootFiberNode
 
-▸ **isConstructorComponentClass**(`ctr`: `React.ElementType`): *boolean*
+▸ **doesElementContainRootFiberNode**(`element`: `Element`): *boolean*
 
-*Defined in [utils.ts:40](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/utils.ts#L40)*
+*Defined in [utils.ts:65](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/utils.ts#L65)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`ctr` | `React.ElementType` |
+`element` | `Element` |
+
+**Returns:** *boolean*
+
+___
+
+###  getRootFiberNodeFromDOM
+
+▸ **getRootFiberNodeFromDOM**(`startElement?`: [Element](../interfaces/_mocked_types_index_.fibernodedomcontainer.md#element)): *[FiberNode](_mocked_types_index_.md#fibernode) | null*
+
+*Defined in [utils.ts:82](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/utils.ts#L82)*
+
+Util to find root React Fiber node from html DOM tree.
+Returns null, if not found.SHould be called after ReactDOM.render is finished.
+
+**Parameters:**
+
+Name | Type | Description |
+------ | ------ | ------ |
+`startElement?` | [Element](../interfaces/_mocked_types_index_.fibernodedomcontainer.md#element) | Starting DOM element to seach from. If not found, it checks inside its child nodes. Defaults to document.body  |
+
+**Returns:** *[FiberNode](_mocked_types_index_.md#fibernode) | null*
+
+___
+
+###  isConstructorComponentClass
+
+▸ **isConstructorComponentClass**(`ctr`: `React.ElementType` | null): *boolean*
+
+*Defined in [utils.ts:42](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/utils.ts#L42)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`ctr` | `React.ElementType` \| null |
 
 **Returns:** *boolean*
 
@@ -36,15 +73,15 @@ ___
 
 ###  isConstructorFunctionComponent
 
-▸ **isConstructorFunctionComponent**(`ctr`: `React.ElementType`): *boolean*
+▸ **isConstructorFunctionComponent**(`ctr`: `React.ElementType` | null): *boolean*
 
-*Defined in [utils.ts:57](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/utils.ts#L57)*
+*Defined in [utils.ts:59](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/utils.ts#L59)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`ctr` | `React.ElementType` |
+`ctr` | `React.ElementType` \| null |
 
 **Returns:** *boolean*
 
@@ -52,15 +89,15 @@ ___
 
 ###  isConstructorHtmlLike
 
-▸ **isConstructorHtmlLike**(`ctr`: `React.ElementType`): *boolean*
+▸ **isConstructorHtmlLike**(`ctr`: `React.ElementType` | null): *boolean*
 
-*Defined in [utils.ts:31](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/utils.ts#L31)*
+*Defined in [utils.ts:33](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/utils.ts#L33)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`ctr` | `React.ElementType` |
+`ctr` | `React.ElementType` \| null |
 
 **Returns:** *boolean*
 
@@ -70,7 +107,7 @@ ___
 
 ▸ **isNodeComponentClass**(`node`: [FiberNode](_mocked_types_index_.md#fibernode)): *boolean*
 
-*Defined in [utils.ts:25](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/utils.ts#L25)*
+*Defined in [utils.ts:27](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/utils.ts#L27)*
 
 **Parameters:**
 
@@ -86,7 +123,7 @@ ___
 
 ▸ **isNodeFunctionComponent**(`node`: [FiberNode](_mocked_types_index_.md#fibernode)): *boolean*
 
-*Defined in [utils.ts:19](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/utils.ts#L19)*
+*Defined in [utils.ts:21](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/utils.ts#L21)*
 
 **Parameters:**
 
@@ -102,7 +139,7 @@ ___
 
 ▸ **isNodeHtmlLike**(`node`: [FiberNode](_mocked_types_index_.md#fibernode)): *boolean*
 
-*Defined in [utils.ts:9](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/utils.ts#L9)*
+*Defined in [utils.ts:11](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/utils.ts#L11)*
 
 **Parameters:**
 
@@ -118,7 +155,7 @@ ___
 
 ▸ **isNodeNotHtmlLike**(`node`: [FiberNode](_mocked_types_index_.md#fibernode)): *boolean*
 
-*Defined in [utils.ts:13](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/utils.ts#L13)*
+*Defined in [utils.ts:15](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/utils.ts#L15)*
 
 **Parameters:**
 

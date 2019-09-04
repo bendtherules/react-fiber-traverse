@@ -13,20 +13,40 @@
 
 ## Basic Usage
 
-```jsx
-import React from 'react'
-import { render } from 'react-dom'
+```ts
+import React from "react";
+import { render } from "react-dom";
 
-render(, document.getElementById('root'))
+import { findNodeByComponentName, Utils } from "react-fiber-traverse";
+
+// Sample component
+// Say, if SomeComponentName looks like this -
+function SomeComponentName() {
+  return <div>Some text</div>;
+}
+
+// Render component
+const rootElement = document.getElementById("root");
+render(<SomeComponentName />, rootElement);
+
+// Get root node
+const rootFiberNode = Utils.getRootFiberNodeFromDOM(rootElement);
+
+// Get component node
+const someFiberNode = findNodeByComponentName(
+  rootFiberNode,
+  "SomeComponentName"
+); // <- returns FiberNode for first usage of 'SomeComponentName'
+
+console.log(someFiberNode.child.stateNode); // <- returns reference to the div
+console.log(someFiberNode.child.stateNode.innerText); // <- returns 'Some text'
+
 ```
 
 ## Live Examples
 
-- [Basic Usage](https://codesandbox.io/)
-- [API Example](https://codesandbox.io/)
-- [UMD Build (Development)](https://codesandbox.io/)
-- [UMD Build (Production)](https://codesandbox.io/)
-
+- [Basic Usage](https://codesandbox.io/s/react-example-x82zk?expanddevtools=1&fontsize=14)
+<!-- 
 ## API
 
 **Props**
@@ -37,7 +57,7 @@ render(, document.getElementById('root'))
 **Example**
 
 ```jsx
-```
+``` -->
 
 ## Installation
 
@@ -54,7 +74,6 @@ For the non-minified development version, make sure you have already included:
 
 - [`React`](https://unpkg.com/react/umd/react.development.js)
 - [`ReactDOM`](https://unpkg.com/react-dom/umd/react-dom.development.js)
-- [`PropTypes`](https://unpkg.com/prop-types/prop-types.js)
 
 For the minified production version, make sure you have already included:
 

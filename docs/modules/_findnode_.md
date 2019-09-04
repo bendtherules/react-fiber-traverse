@@ -18,7 +18,7 @@
 
 ▸ **findNodeByComponent**(`node`: [FiberNode](_mocked_types_index_.md#fibernode) | null, `expectedClassOrFunction`: `React.ComponentType`): *[FiberNode](_mocked_types_index_.md#fibernode) | null*
 
-*Defined in [findNode.ts:32](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/findNode.ts#L32)*
+*Defined in [findNode.ts:32](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/findNode.ts#L32)*
 
 **Parameters:**
 
@@ -35,7 +35,7 @@ ___
 
 ▸ **findNodeByComponentName**(`node`: [FiberNode](_mocked_types_index_.md#fibernode) | null, `expectedName`: string): *[FiberNode](_mocked_types_index_.md#fibernode) | null*
 
-*Defined in [findNode.ts:4](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/findNode.ts#L4)*
+*Defined in [findNode.ts:4](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/findNode.ts#L4)*
 
 **Parameters:**
 
@@ -52,7 +52,7 @@ ___
 
 ▸ **findNodeByComponentRef**(`node`: [FiberNode](_mocked_types_index_.md#fibernode) | null, `expectedClassInstance`: `Component`): *[FiberNode](_mocked_types_index_.md#fibernode) | null*
 
-*Defined in [findNode.ts:63](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/findNode.ts#L63)*
+*Defined in [findNode.ts:63](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/findNode.ts#L63)*
 
 **Parameters:**
 
