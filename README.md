@@ -98,6 +98,7 @@ Currently, it assumes that nodes are created by `react 16.3+` with appropriate `
 Because fiber nodes are internal to react and are supported by multiple renderers, this is an incorrect assumption to make. It should:
 1. support diff versions of react (which have fiber node, but slight variations of it)
 2. be renderer-agnostic (say, support react-fs-renderer) but with extra helpers for react-dom.
+3. heavily tested with all these variations (to know when internals have changed).
 
 ## Docs
 
