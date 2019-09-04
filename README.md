@@ -76,6 +76,37 @@ For the minified production version, make sure you have already included:
 - [`React`](https://unpkg.com/react/umd/react.production.min.js)
 - [`ReactDOM`](https://unpkg.com/react-dom/umd/react-dom.production.min.js)
 
+## Overview
+
+This package contains few utility functions which operate over react-fiber tree.
+
+Overall characteristics are:
+1. Only read-only operations
+2. Support inversion of control
+
+There are few categories of helpers, each with their variations:
+1. Find node(s)
+2. Traverse node
+3. Others - Check node type, find root node, etc.
+
+Little more info is present in docs section.
+
+## Concerns and improvements
+
+Currently, it assumes that nodes are created by `react 16.3+` with appropriate `react-dom`.
+
+Because fiber nodes are internal to react and are supported by multiple renderers, this is an incorrect assumption to make. It should:
+1. support diff versions of react (which have fiber node, but slight variations of it)
+2. be renderer-agnostic (say, support react-fs-renderer) but with extra helpers for react-dom.
+
+## Docs
+
+Docs are sparse at the moment. I plan on adding them soon.
+
+Till then, the auto-generated (typedoc) docs available in [docs folder](./docs/globals.md) might be of some help.
+
+
+
 ## License
 
 MIT
