@@ -38,7 +38,7 @@
     "test:umd": "jest --config ./scripts/jest/config.umd.js",
     "test:umdprod": "jest --config ./scripts/jest/config.umdprod.js",
     "test:src:debug": "node --inspect ./node_modules/jest/bin/jest.js  --config ./scripts/jest/config.src.js",
-    "version": "run-s test authors && git add ."
+    "version": "run-s test authors docs && git add ."
   },
   "husky": {
     "hooks": {
