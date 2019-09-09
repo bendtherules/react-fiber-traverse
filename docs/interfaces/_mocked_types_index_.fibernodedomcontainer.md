@@ -347,7 +347,7 @@ ___
 
 • **_reactRootContainer**: *object*
 
-*Defined in [mocked-types/index.ts:4](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/mocked-types/index.ts#L4)*
+*Defined in [mocked-types/index.ts:4](https://github.com/bendtherules/react-fiber-traverse/blob/21231fc/src/mocked-types/index.ts#L4)*
 
 #### Type declaration:
 
