@@ -17,7 +17,7 @@
 
 ▸ **traverse**(`node`: [FiberNode](_mocked_types_index_.md#fibernode), `fn`: function): *void*
 
-*Defined in [traverse.ts:4](https://github.com/bendtherules/react-fiber-traverse/blob/21231fc/src/traverse.ts#L4)*
+*Defined in [traverse.ts:4](https://github.com/bendtherules/react-fiber-traverse/blob/5a2e7f1/src/traverse.ts#L4)*
 
 **Parameters:**
 
@@ -41,7 +41,7 @@ ___
 
 ▸ **traverseGenerator**(`node`: [FiberNode](_mocked_types_index_.md#fibernode), `__namedParameters`: object): *`IterableIterator<FiberNode>`*
 
-*Defined in [traverse.ts:15](https://github.com/bendtherules/react-fiber-traverse/blob/21231fc/src/traverse.ts#L15)*
+*Defined in [traverse.ts:15](https://github.com/bendtherules/react-fiber-traverse/blob/5a2e7f1/src/traverse.ts#L15)*
 
 **Parameters:**
 

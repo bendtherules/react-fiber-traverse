@@ -18,7 +18,7 @@
 
 ▸ **findNodeByComponent**(`node`: [FiberNode](_mocked_types_index_.md#fibernode) | null, `expectedClassOrFunction`: `React.ComponentType`): *[FiberNode](_mocked_types_index_.md#fibernode) | null*
 
-*Defined in [findNode.ts:63](https://github.com/bendtherules/react-fiber-traverse/blob/21231fc/src/findNode.ts#L63)*
+*Defined in [findNode.ts:67](https://github.com/bendtherules/react-fiber-traverse/blob/5a2e7f1/src/findNode.ts#L67)*
 
 Find node by component (i.e. class or function by reference), till first match.
 
@@ -31,8 +31,10 @@ But, two instances of the same component will still collide.
 Needs access to component class or function.
 
 **`example`** 
+```js
 // returns FiberNode for first usage of AccordionMenu
 findNodeByComponent(startNode, AccordionMenu);
+```
 
 **Parameters:**
 
@@ -49,7 +51,7 @@ ___
 
 ▸ **findNodeByComponentName**(`node`: [FiberNode](_mocked_types_index_.md#fibernode) | null, `expectedName`: string): *[FiberNode](_mocked_types_index_.md#fibernode) | null*
 
-*Defined in [findNode.ts:19](https://github.com/bendtherules/react-fiber-traverse/blob/21231fc/src/findNode.ts#L19)*
+*Defined in [findNode.ts:21](https://github.com/bendtherules/react-fiber-traverse/blob/5a2e7f1/src/findNode.ts#L21)*
 
 Find node by component name, till first match.
 
@@ -61,8 +63,10 @@ Different components with same name will collide.
 Needs access to component name.
 
 **`example`** 
+```js
 // returns FiberNode for first usage of 'AccordionMenu'
 findNodeByComponentName(startNode, "AccordionMenu");
+```
 
 **Parameters:**
 
@@ -79,7 +83,7 @@ ___
 
 ▸ **findNodeByComponentRef**(`node`: [FiberNode](_mocked_types_index_.md#fibernode) | null, `expectedClassInstance`: `Component`): *[FiberNode](_mocked_types_index_.md#fibernode) | null*
 
-*Defined in [findNode.ts:108](https://github.com/bendtherules/react-fiber-traverse/blob/21231fc/src/findNode.ts#L108)*
+*Defined in [findNode.ts:113](https://github.com/bendtherules/react-fiber-traverse/blob/5a2e7f1/src/findNode.ts#L113)*
 
 Find node by component instance ref, till first match.
 
@@ -90,8 +94,10 @@ Returns null if no match is found.
 Needs access to component instance (through React ref usually).
 
 **`example`** 
+```js
 // menuRef=createRef(); <AccordionMenu ref={menuRef}>
 findNodeByComponentRef(startNode, menuRef.current);
+```
 
 **Parameters:**
 
