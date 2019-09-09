@@ -17,7 +17,19 @@
 
 ▸ **traverse**(`node`: [FiberNode](_mocked_types_index_.md#fibernode), `fn`: function): *void*
 
-*Defined in [traverse.ts:4](https://github.com/bendtherules/react-fiber-traverse/blob/6cffc96/src/traverse.ts#L4)*
+*Defined in [traverse.ts:19](https://github.com/bendtherules/react-fiber-traverse/blob/fd6dad2/src/traverse.ts#L19)*
+
+Traverse nodes recursively in depth-first manner, starting from a start node.
+
+This is the default and basic traversal method, which covers basic use cases.
+You can't do advanced things like change the order of traversal, skip or cancel traversal after any node, etc.
+For more advanced usecases, see [traverseGenerator](_traverse_.md#traversegenerator)
+
+**`example`** 
+```js
+// calls fn for each node inside startNode
+traverse(startNode, fn);
+```
 
 **Parameters:**
 
@@ -41,7 +53,7 @@ ___
 
 ▸ **traverseGenerator**(`node`: [FiberNode](_mocked_types_index_.md#fibernode), `__namedParameters`: object): *`IterableIterator<FiberNode>`*
 
-*Defined in [traverse.ts:15](https://github.com/bendtherules/react-fiber-traverse/blob/6cffc96/src/traverse.ts#L15)*
+*Defined in [traverse.ts:30](https://github.com/bendtherules/react-fiber-traverse/blob/fd6dad2/src/traverse.ts#L30)*
 
 **Parameters:**
 

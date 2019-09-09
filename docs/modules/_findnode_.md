@@ -18,7 +18,7 @@
 
 ▸ **findNodeByComponent**(`node`: [FiberNode](_mocked_types_index_.md#fibernode) | null, `expectedClassOrFunction`: `React.ComponentType`): *[FiberNode](_mocked_types_index_.md#fibernode) | null*
 
-*Defined in [findNode.ts:67](https://github.com/bendtherules/react-fiber-traverse/blob/6cffc96/src/findNode.ts#L67)*
+*Defined in [findNode.ts:67](https://github.com/bendtherules/react-fiber-traverse/blob/fd6dad2/src/findNode.ts#L67)*
 
 Find node by component (i.e. class or function by reference), till first match.
 
@@ -51,7 +51,7 @@ ___
 
 ▸ **findNodeByComponentName**(`node`: [FiberNode](_mocked_types_index_.md#fibernode) | null, `expectedName`: string): *[FiberNode](_mocked_types_index_.md#fibernode) | null*
 
-*Defined in [findNode.ts:21](https://github.com/bendtherules/react-fiber-traverse/blob/6cffc96/src/findNode.ts#L21)*
+*Defined in [findNode.ts:21](https://github.com/bendtherules/react-fiber-traverse/blob/fd6dad2/src/findNode.ts#L21)*
 
 Find node by component name, till first match.
 
@@ -83,7 +83,7 @@ ___
 
 ▸ **findNodeByComponentRef**(`node`: [FiberNode](_mocked_types_index_.md#fibernode) | null, `expectedClassInstance`: `Component`): *[FiberNode](_mocked_types_index_.md#fibernode) | null*
 
-*Defined in [findNode.ts:114](https://github.com/bendtherules/react-fiber-traverse/blob/6cffc96/src/findNode.ts#L114)*
+*Defined in [findNode.ts:114](https://github.com/bendtherules/react-fiber-traverse/blob/fd6dad2/src/findNode.ts#L114)*
 
 Find node by component instance ref, till first match.
 
