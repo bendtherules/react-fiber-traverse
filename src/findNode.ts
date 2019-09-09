@@ -7,15 +7,15 @@ import { isNodeNotHtmlLike } from "./utils";
  * Matches against class and function name, doesn't match html-like nodes.
  * Returns null if no match is found.
  *
- * @note Highest chance of collision, least data access needed.
- * Different components with same name will collide.
- * Needs access to component name.
- *
  * @example
  * ```js
  * // returns FiberNode for first usage of 'AccordionMenu'
  * findNodeByComponentName(startNode, "AccordionMenu");
  * ```
+ *
+ * @note Highest chance of collision, least data access needed.
+ * Different components with same name will collide.
+ * Needs access to component name.
  *
  */
 function findNodeByComponentName(
@@ -52,16 +52,16 @@ function findNodeByComponentName(
  * Matches against class and function by reference.
  * Returns null if no match is found.
  *
- * @note Medium chance of collision, medium data access needed.
- * This is safer than findNodeByComponentName, as different components with the same name won't collide.
- * But, two instances of the same component will still collide.
- * Needs access to component class or function.
- *
  * @example
  * ```js
  * // returns FiberNode for first usage of AccordionMenu
  * findNodeByComponent(startNode, AccordionMenu);
  * ```
+ *
+ * @note Medium chance of collision, medium data access needed.
+ * This is safer than findNodeByComponentName, as different components with the same name won't collide.
+ * But, two instances of the same component will still collide.
+ * Needs access to component class or function.
  *
  */
 function findNodeByComponent(
@@ -101,14 +101,15 @@ function findNodeByComponent(
  * Matches against class instances by reference.
  * Returns null if no match is found.
  *
- * @note  Least chance of collision, maximum data access needed.
- * Needs access to component instance (through React ref usually).
- *
  * @example
  * ```js
  * // menuRef=createRef(); <AccordionMenu ref={menuRef}>
  * findNodeByComponentRef(startNode, menuRef.current);
  * ```
+ *
+ * @note  Least chance of collision, maximum data access needed.
+ * Needs access to component instance (through React ref usually).
+ *
  */
 function findNodeByComponentRef(
   node: FiberNode | null,
