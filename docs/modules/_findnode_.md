@@ -18,23 +18,23 @@
 
 ▸ **findNodeByComponent**(`node`: [FiberNode](_mocked_types_index_.md#fibernode) | null, `expectedClassOrFunction`: `React.ComponentType`): *[FiberNode](_mocked_types_index_.md#fibernode) | null*
 
-*Defined in [findNode.ts:67](https://github.com/bendtherules/react-fiber-traverse/blob/5a2e7f1/src/findNode.ts#L67)*
+*Defined in [findNode.ts:67](https://github.com/bendtherules/react-fiber-traverse/blob/6cffc96/src/findNode.ts#L67)*
 
 Find node by component (i.e. class or function by reference), till first match.
 
 Matches against class and function by reference.
 Returns null if no match is found.
 
-**`note`** Medium chance of collision, medium data access needed.
-This is safer than findNodeByComponentName, as different components with the same name won't collide.
-But, two instances of the same component will still collide.
-Needs access to component class or function.
-
 **`example`** 
 ```js
 // returns FiberNode for first usage of AccordionMenu
 findNodeByComponent(startNode, AccordionMenu);
 ```
+
+**`note`** Medium chance of collision, medium data access needed.
+This is safer than findNodeByComponentName, as different components with the same name won't collide.
+But, two instances of the same component will still collide.
+Needs access to component class or function.
 
 **Parameters:**
 
@@ -51,22 +51,22 @@ ___
 
 ▸ **findNodeByComponentName**(`node`: [FiberNode](_mocked_types_index_.md#fibernode) | null, `expectedName`: string): *[FiberNode](_mocked_types_index_.md#fibernode) | null*
 
-*Defined in [findNode.ts:21](https://github.com/bendtherules/react-fiber-traverse/blob/5a2e7f1/src/findNode.ts#L21)*
+*Defined in [findNode.ts:21](https://github.com/bendtherules/react-fiber-traverse/blob/6cffc96/src/findNode.ts#L21)*
 
 Find node by component name, till first match.
 
 Matches against class and function name, doesn't match html-like nodes.
 Returns null if no match is found.
 
-**`note`** Highest chance of collision, least data access needed.
-Different components with same name will collide.
-Needs access to component name.
-
 **`example`** 
 ```js
 // returns FiberNode for first usage of 'AccordionMenu'
 findNodeByComponentName(startNode, "AccordionMenu");
 ```
+
+**`note`** Highest chance of collision, least data access needed.
+Different components with same name will collide.
+Needs access to component name.
 
 **Parameters:**
 
@@ -83,21 +83,21 @@ ___
 
 ▸ **findNodeByComponentRef**(`node`: [FiberNode](_mocked_types_index_.md#fibernode) | null, `expectedClassInstance`: `Component`): *[FiberNode](_mocked_types_index_.md#fibernode) | null*
 
-*Defined in [findNode.ts:113](https://github.com/bendtherules/react-fiber-traverse/blob/5a2e7f1/src/findNode.ts#L113)*
+*Defined in [findNode.ts:114](https://github.com/bendtherules/react-fiber-traverse/blob/6cffc96/src/findNode.ts#L114)*
 
 Find node by component instance ref, till first match.
 
 Matches against class instances by reference.
 Returns null if no match is found.
 
-**`note`** Least chance of collision, maximum data access needed.
-Needs access to component instance (through React ref usually).
-
 **`example`** 
 ```js
 // menuRef=createRef(); <AccordionMenu ref={menuRef}>
 findNodeByComponentRef(startNode, menuRef.current);
 ```
+
+**`note`** Least chance of collision, maximum data access needed.
+Needs access to component instance (through React ref usually).
 
 **Parameters:**
 
