@@ -7,6 +7,7 @@
 
 5. Add `findAllNodes` helpers which searches all usages of the components - by name or class
 6. Allow using all methods without explicit root node. Find automatically, if not provided.
+7. SKip siblings for first entry
 
 6. Fix getRootFiberNodeFromDOM and related helpers -
    - .\_internalRoot is not present is 16.0.0 but present in 16.9.0
