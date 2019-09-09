@@ -12,8 +12,10 @@ import { isNodeNotHtmlLike } from "./utils";
  * Needs access to component name.
  *
  * @example
+ * ```js
  * // returns FiberNode for first usage of 'AccordionMenu'
  * findNodeByComponentName(startNode, "AccordionMenu");
+ * ```
  *
  */
 function findNodeByComponentName(
@@ -56,8 +58,10 @@ function findNodeByComponentName(
  * Needs access to component class or function.
  *
  * @example
+ * ```js
  * // returns FiberNode for first usage of AccordionMenu
  * findNodeByComponent(startNode, AccordionMenu);
+ * ```
  *
  */
 function findNodeByComponent(
@@ -101,9 +105,10 @@ function findNodeByComponent(
  * Needs access to component instance (through React ref usually).
  *
  * @example
+ * ```js
  * // menuRef=createRef(); <AccordionMenu ref={menuRef}>
  * findNodeByComponentRef(startNode, menuRef.current);
- *
+ * ```
  */
 function findNodeByComponentRef(
   node: FiberNode | null,
