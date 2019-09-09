@@ -24,7 +24,7 @@
 
 • **child**: *[FiberNode](../modules/_mocked_types_index_.md#fibernode) | null*
 
-*Defined in [mocked-types/index.ts:20](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/mocked-types/index.ts#L20)*
+*Defined in [mocked-types/index.ts:28](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/mocked-types/index.ts#L28)*
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 • **elementType**: *`ComponentClass`*
 
-*Defined in [mocked-types/index.ts:23](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/mocked-types/index.ts#L23)*
+*Defined in [mocked-types/index.ts:31](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/mocked-types/index.ts#L31)*
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 • **sibling**: *[FiberNode](../modules/_mocked_types_index_.md#fibernode) | null*
 
-*Defined in [mocked-types/index.ts:21](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/mocked-types/index.ts#L21)*
+*Defined in [mocked-types/index.ts:29](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/mocked-types/index.ts#L29)*
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 • **stateNode**: *`Component`*
 
-*Defined in [mocked-types/index.ts:26](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/mocked-types/index.ts#L26)*
+*Defined in [mocked-types/index.ts:34](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/mocked-types/index.ts#L34)*
 
 ___
 
@@ -56,4 +56,4 @@ ___
 
 • **type**: *`ComponentClass`*
 
-*Defined in [mocked-types/index.ts:24](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/mocked-types/index.ts#L24)*
+*Defined in [mocked-types/index.ts:32](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/mocked-types/index.ts#L32)*

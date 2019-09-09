@@ -8,6 +8,7 @@
 
 ### Interfaces
 
+* [FiberNodeDOMContainer](../interfaces/_mocked_types_index_.fibernodedomcontainer.md)
 * [FiberNodeForComponentClass](../interfaces/_mocked_types_index_.fibernodeforcomponentclass.md)
 * [FiberNodeForFunctionComponent](../interfaces/_mocked_types_index_.fibernodeforfunctioncomponent.md)
 * [FiberNodeForInstrinsicElement](../interfaces/_mocked_types_index_.fibernodeforinstrinsicelement.md)
@@ -24,7 +25,7 @@
 
 Ƭ **FiberNode**: *[FiberNodeForComponentClass](../interfaces/_mocked_types_index_.fibernodeforcomponentclass.md) | [FiberNodeForFunctionComponent](../interfaces/_mocked_types_index_.fibernodeforfunctioncomponent.md) | [FiberNodeForInstrinsicElement](../interfaces/_mocked_types_index_.fibernodeforinstrinsicelement.md) | [FiberNodeForTextNode](../interfaces/_mocked_types_index_.fibernodefortextnode.md)*
 
-*Defined in [mocked-types/index.ts:3](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/mocked-types/index.ts#L3)*
+*Defined in [mocked-types/index.ts:11](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/mocked-types/index.ts#L11)*
 
 ___
 
@@ -32,4 +33,4 @@ ___
 
 Ƭ **FiberNodeisHTMLLike**: *[FiberNodeForInstrinsicElement](../interfaces/_mocked_types_index_.fibernodeforinstrinsicelement.md) | [FiberNodeForTextNode](../interfaces/_mocked_types_index_.fibernodefortextnode.md)*
 
-*Defined in [mocked-types/index.ts:59](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/mocked-types/index.ts#L59)*
+*Defined in [mocked-types/index.ts:67](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/mocked-types/index.ts#L67)*

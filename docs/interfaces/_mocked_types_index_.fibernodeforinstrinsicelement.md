@@ -24,9 +24,9 @@
 
 • **child**: *[FiberNode](../modules/_mocked_types_index_.md#fibernode) | null*
 
-*Defined in [mocked-types/index.ts:30](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/mocked-types/index.ts#L30)*
+*Defined in [mocked-types/index.ts:38](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/mocked-types/index.ts#L38)*
 
-*Defined in [mocked-types/index.ts:40](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/mocked-types/index.ts#L40)*
+*Defined in [mocked-types/index.ts:48](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/mocked-types/index.ts#L48)*
 
 ___
 
@@ -34,9 +34,9 @@ ___
 
 • **elementType**: *keyof IntrinsicElements*
 
-*Defined in [mocked-types/index.ts:33](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/mocked-types/index.ts#L33)*
+*Defined in [mocked-types/index.ts:41](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/mocked-types/index.ts#L41)*
 
-*Defined in [mocked-types/index.ts:43](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/mocked-types/index.ts#L43)*
+*Defined in [mocked-types/index.ts:51](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/mocked-types/index.ts#L51)*
 
 ___
 
@@ -44,9 +44,9 @@ ___
 
 • **sibling**: *[FiberNode](../modules/_mocked_types_index_.md#fibernode) | null*
 
-*Defined in [mocked-types/index.ts:31](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/mocked-types/index.ts#L31)*
+*Defined in [mocked-types/index.ts:39](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/mocked-types/index.ts#L39)*
 
-*Defined in [mocked-types/index.ts:41](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/mocked-types/index.ts#L41)*
+*Defined in [mocked-types/index.ts:49](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/mocked-types/index.ts#L49)*
 
 ___
 
@@ -54,9 +54,9 @@ ___
 
 • **stateNode**: *`HTMLElement`*
 
-*Defined in [mocked-types/index.ts:36](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/mocked-types/index.ts#L36)*
+*Defined in [mocked-types/index.ts:44](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/mocked-types/index.ts#L44)*
 
-*Defined in [mocked-types/index.ts:46](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/mocked-types/index.ts#L46)*
+*Defined in [mocked-types/index.ts:54](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/mocked-types/index.ts#L54)*
 
 ___
 
@@ -64,6 +64,6 @@ ___
 
 • **type**: *keyof IntrinsicElements*
 
-*Defined in [mocked-types/index.ts:34](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/mocked-types/index.ts#L34)*
+*Defined in [mocked-types/index.ts:42](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/mocked-types/index.ts#L42)*
 
-*Defined in [mocked-types/index.ts:44](https://github.com/bendtherules/react-fiber-traverse/blob/c9d7fd7/src/mocked-types/index.ts#L44)*
+*Defined in [mocked-types/index.ts:52](https://github.com/bendtherules/react-fiber-traverse/blob/18ea2e7/src/mocked-types/index.ts#L52)*
