@@ -1,4 +1,5 @@
 import { FiberNode } from "./mocked-types";
+import { traverseGenerator, TTraverseConfig } from "./traverse";
 import { isNodeNotHtmlLike } from "./utils";
 
 /**
@@ -20,26 +21,17 @@ import { isNodeNotHtmlLike } from "./utils";
  */
 function findNodeByComponentName(
   node: FiberNode | null,
-  expectedName: string
+  expectedName: string,
+  traverseConfig?: TTraverseConfig
 ): FiberNode | null {
   if (node === null) {
     return null;
   }
 
-  if (isNodeNotHtmlLike(node) && node.type.name === expectedName) {
-    return node;
-  }
-
-  {
-    const returnVal = findNodeByComponentName(node.child, expectedName);
-    if (returnVal !== null) {
-      return returnVal;
-    }
-  }
-  {
-    const returnVal = findNodeByComponentName(node.sibling, expectedName);
-    if (returnVal !== null) {
-      return returnVal;
+  const nodeIterator = traverseGenerator(node, traverseConfig);
+  for (const tmpNode of nodeIterator) {
+    if (isNodeNotHtmlLike(tmpNode) && tmpNode.type.name === expectedName) {
+      return tmpNode;
     }
   }
 
@@ -66,29 +58,20 @@ function findNodeByComponentName(
  */
 function findNodeByComponent(
   node: FiberNode | null,
-  expectedClassOrFunction: React.ComponentType
+  expectedClassOrFunction: React.ComponentType,
+  traverseConfig?: TTraverseConfig
 ): FiberNode | null {
   if (node === null) {
     return null;
   }
 
-  if (isNodeNotHtmlLike(node) && node.type === expectedClassOrFunction) {
-    return node;
-  }
-
-  {
-    const returnVal = findNodeByComponent(node.child, expectedClassOrFunction);
-    if (returnVal !== null) {
-      return returnVal;
-    }
-  }
-  {
-    const returnVal = findNodeByComponent(
-      node.sibling,
-      expectedClassOrFunction
-    );
-    if (returnVal !== null) {
-      return returnVal;
+  const nodeIterator = traverseGenerator(node, traverseConfig);
+  for (const tmpNode of nodeIterator) {
+    if (
+      isNodeNotHtmlLike(tmpNode) &&
+      tmpNode.type === expectedClassOrFunction
+    ) {
+      return tmpNode;
     }
   }
 
@@ -113,29 +96,20 @@ function findNodeByComponent(
  */
 function findNodeByComponentRef(
   node: FiberNode | null,
-  expectedClassInstance: React.Component
+  expectedClassInstance: React.Component,
+  traverseConfig?: TTraverseConfig
 ): FiberNode | null {
   if (node === null) {
     return null;
   }
 
-  if (isNodeNotHtmlLike(node) && node.stateNode === expectedClassInstance) {
-    return node;
-  }
-
-  {
-    const returnVal = findNodeByComponentRef(node.child, expectedClassInstance);
-    if (returnVal !== null) {
-      return returnVal;
-    }
-  }
-  {
-    const returnVal = findNodeByComponentRef(
-      node.sibling,
-      expectedClassInstance
-    );
-    if (returnVal !== null) {
-      return returnVal;
+  const nodeIterator = traverseGenerator(node, traverseConfig);
+  for (const tmpNode of nodeIterator) {
+    if (
+      isNodeNotHtmlLike(tmpNode) &&
+      tmpNode.stateNode === expectedClassInstance
+    ) {
+      return tmpNode;
     }
   }
 
