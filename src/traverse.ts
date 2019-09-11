@@ -50,7 +50,8 @@ function traverse(node: FiberNode, fn: (node: FiberNode) => any) {
  *  // do something with each node here
  * }
  * ```
- *
+ * ------
+ * 
  * @example
  * ```js
  * // Breadth-first
@@ -59,6 +60,7 @@ function traverse(node: FiberNode, fn: (node: FiberNode) => any) {
  * const nodeIterator = traverseGenerator(rootNode, ["self", "sibling", "child"]);
  * // rest - same as above
  * ```
+ * -----
  *
  * @example
  * ```js
@@ -80,6 +82,7 @@ function traverse(node: FiberNode, fn: (node: FiberNode) => any) {
  * // Finish generator, to prevent memory leak
  * nodeIterator.throw(new Error());
  * ```
+ * -----
  *
  */
 function* traverseGenerator(
