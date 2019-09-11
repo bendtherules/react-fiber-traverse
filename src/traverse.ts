@@ -93,7 +93,7 @@ function* traverseGenerator(
 
   function* traverseSelf() {
     const controlInput:
-      | { skipChild: boolean; skipSibling: boolean }
+      | { skipChild?: boolean; skipSibling?: boolean }
       | undefined = yield node;
 
     if (controlInput !== undefined) {
