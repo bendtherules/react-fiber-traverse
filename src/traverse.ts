@@ -63,11 +63,15 @@ import { FiberNode } from "./mocked-types";
 function* traverseGenerator(
   node: FiberNode,
   {
-    order = ["self", "child", "sibling"]
-  }: { order?: Array<"self" | "child" | "sibling"> } = {}
+    order = ["self", "child", "sibling"],
+    skipSiblingForStartNode = true
+  }: {
+    order?: Array<"self" | "child" | "sibling">;
+    skipSiblingForStartNode?: boolean;
+  } = {}
 ): IterableIterator<FiberNode> {
   let skipChild = false,
-    skipSibling = false;
+    skipSibling = skipSiblingForStartNode;
 
   function* traverseSelf() {
     const controlInput:
@@ -82,14 +86,20 @@ function* traverseGenerator(
   function* traverseChild() {
     if (!skipChild && node.child !== null) {
       const nextNode = node.child;
-      yield* traverseGenerator(nextNode, { order });
+      yield* traverseGenerator(nextNode, {
+        order,
+        skipSiblingForStartNode: false
+      });
     }
   }
 
   function* traverseSibling() {
     if (!skipSibling && node.sibling !== null) {
       const nextNode = node.sibling;
-      yield* traverseGenerator(nextNode, { order });
+      yield* traverseGenerator(nextNode, {
+        order,
+        skipSiblingForStartNode: false
+      });
     }
   }
 
