@@ -1,6 +1,11 @@
 // import { isNodeSimple } from './utils';
 import { FiberNode } from "./mocked-types";
 
+interface TTraverseConfig {
+  order?: Array<"self" | "child" | "sibling">;
+  skipSiblingForStartNode?: boolean;
+}
+
 /**
  * Traverse nodes recursively using generators.
  *
@@ -65,10 +70,7 @@ function* traverseGenerator(
   {
     order = ["self", "child", "sibling"],
     skipSiblingForStartNode = true
-  }: {
-    order?: Array<"self" | "child" | "sibling">;
-    skipSiblingForStartNode?: boolean;
-  } = {}
+  }: TTraverseConfig = {}
 ): IterableIterator<FiberNode> {
   let skipChild = false,
     skipSibling = skipSiblingForStartNode;
@@ -141,4 +143,4 @@ function traverse(node: FiberNode, fn: (node: FiberNode) => any) {
   }
 }
 
-export { traverse, traverseGenerator };
+export { traverse, traverseGenerator, TTraverseConfig };
