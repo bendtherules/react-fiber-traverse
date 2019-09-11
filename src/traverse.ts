@@ -125,13 +125,9 @@ function* traverseGenerator(
  *
  */
 function traverse(node: FiberNode, fn: (node: FiberNode) => any) {
-  fn.call(null, node);
-
-  if (node.child !== null) {
-    traverse(node.child, fn);
-  }
-  if (node.sibling !== null) {
-    traverse(node.sibling, fn);
+  const nodeIterator = traverseGenerator(node);
+  for (const tmpNode of nodeIterator) {
+    fn.call(null, tmpNode);
   }
 }
 
