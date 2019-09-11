@@ -17,3 +17,5 @@
 
 7. Make it work with older React versions
 8. Make it work with non React-DOM renderers
+
+9. Add test - traverseGenerator - siblings were traversed earlier, not now. Check input config.
