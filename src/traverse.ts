@@ -51,7 +51,7 @@ function traverse(node: FiberNode, fn: (node: FiberNode) => any) {
  * }
  * ```
  * ------
- * 
+ *
  * @example
  * ```js
  * // Breadth-first
