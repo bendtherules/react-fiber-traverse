@@ -136,8 +136,12 @@ function* traverseGenerator(
  * ```
  *
  */
-function traverse(node: FiberNode, fn: (node: FiberNode) => any) {
-  const nodeIterator = traverseGenerator(node);
+function traverse(
+  node: FiberNode,
+  fn: (node: FiberNode) => any,
+  traverseConfig?: TTraverseConfig
+) {
+  const nodeIterator = traverseGenerator(node, traverseConfig);
   for (const tmpNode of nodeIterator) {
     fn.call(null, tmpNode);
   }
