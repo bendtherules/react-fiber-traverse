@@ -2,31 +2,6 @@
 import { FiberNode } from "./mocked-types";
 
 /**
- * Traverse nodes recursively in depth-first manner, starting from a start node.
- *
- * This is the default and basic traversal function, which covers basic use cases.
- * You can't do advanced things like change the order of traversal, skip or cancel traversal after any node, etc.
- * For more advanced usecases, see {@link traverseGenerator}
- *
- * @example
- * ```js
- * // calls fn for each node inside startNode
- * traverse(startNode, fn);
- * ```
- *
- */
-function traverse(node: FiberNode, fn: (node: FiberNode) => any) {
-  fn.call(null, node);
-
-  if (node.child !== null) {
-    traverse(node.child, fn);
-  }
-  if (node.sibling !== null) {
-    traverse(node.sibling, fn);
-  }
-}
-
-/**
  * Traverse nodes recursively using generators.
  *
  * This is the advanced traverse function, which can be used used
@@ -132,6 +107,31 @@ function* traverseGenerator(
   // Now run each generator till end
   for (const eachGen of orderedGenerators) {
     yield* eachGen();
+  }
+}
+
+/**
+ * Traverse nodes recursively in depth-first manner, starting from a start node.
+ *
+ * This is the default and basic traversal function, which covers basic use cases.
+ * You can't do advanced things like change the order of traversal, skip or cancel traversal after any node, etc.
+ * For more advanced usecases, see {@link traverseGenerator}
+ *
+ * @example
+ * ```js
+ * // calls fn for each node inside startNode
+ * traverse(startNode, fn);
+ * ```
+ *
+ */
+function traverse(node: FiberNode, fn: (node: FiberNode) => any) {
+  fn.call(null, node);
+
+  if (node.child !== null) {
+    traverse(node.child, fn);
+  }
+  if (node.sibling !== null) {
+    traverse(node.sibling, fn);
   }
 }
 
