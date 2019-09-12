@@ -19,4 +19,6 @@
 9. Add test - traverseGenerator - siblings were traversed earlier, not now. Check input config.
 
 10. Find node by CSS (query language) - Make it work for Class/Function reference also
-11. Helper and filter by props and state
+11. Allow easy way to continue FiberNode select with CSS selector for dom node (handling Fragments)
+
+12. Helper and filter by props and state
