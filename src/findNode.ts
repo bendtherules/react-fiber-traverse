@@ -38,6 +38,31 @@ function findNodeByComponentName(
   return null;
 }
 
+function* findNodesByComponentName(
+  node: FiberNode | null,
+  expectedName: string,
+  traverseConfig?: TTraverseConfig
+): IterableIterator<FiberNode> {
+  if (node === null) {
+    return null;
+  }
+
+  const nodeIterator = traverseGenerator(node, traverseConfig);
+  for (const tmpNode of nodeIterator) {
+    if (isNodeNotHtmlLike(tmpNode) && tmpNode.type.name === expectedName) {
+      yield tmpNode;
+    }
+  }
+}
+
+function findAllNodesByComponentName(
+  node: FiberNode | null,
+  expectedName: string,
+  traverseConfig?: TTraverseConfig
+): Array<FiberNode> {
+  return [...findNodesByComponentName(node, expectedName, traverseConfig)];
+}
+
 /**
  * Find node by component (i.e. class or function by reference), till first match.
  *
@@ -116,4 +141,10 @@ function findNodeByComponentRef(
   return null;
 }
 
-export { findNodeByComponentName, findNodeByComponent, findNodeByComponentRef };
+export {
+  findNodeByComponentName,
+  findNodesByComponentName,
+  findAllNodesByComponentName,
+  findNodeByComponent,
+  findNodeByComponentRef
+};
