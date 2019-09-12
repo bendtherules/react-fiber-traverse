@@ -18,5 +18,5 @@
 
 9. Add test - traverseGenerator - siblings were traversed earlier, not now. Check input config.
 
-10. Find node by CSS (query language)
+10. Find node by CSS (query language) - Make it work for Class/Function reference also
 11. Helper and filter by props and state
