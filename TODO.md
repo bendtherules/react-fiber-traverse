@@ -7,8 +7,6 @@
 
 5. Add `findAllNodes` helpers which searches all usages of the components - by name or class
 6. Allow using all methods without explicit root node. Find automatically, if not provided.
-7. SKip siblings for first entry - DONE
-8. ** Rewrite `find*` methods using traverseGenerator ** - DONE
 
 6. Fix getRootFiberNodeFromDOM and related helpers -
    - .\_internalRoot is not present is 16.0.0 but present in 16.9.0
@@ -19,3 +17,6 @@
 8. Make it work with non React-DOM renderers
 
 9. Add test - traverseGenerator - siblings were traversed earlier, not now. Check input config.
+
+10. Find node by CSS (query language)
+11. Helper and filter by props and state
