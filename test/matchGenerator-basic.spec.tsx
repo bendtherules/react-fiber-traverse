@@ -94,5 +94,46 @@ describe("matchGenerator", () => {
       expect((nodes[0] as FiberNodeForComponentClass).type).toBe(C2);
       expect((nodes[0] as FiberNodeForComponentClass).type).not.toBe(C1);
     });
+
+    it("should work for depth=2 class with child selector", () => {
+      const [C1, C2] = createClassComponents(["C1", "C2"]);
+      function CRoot() {
+        return (
+          <C1>
+            <C2 />
+          </C1>
+        );
+      }
+      const rootNode = mountAndGetRootNode(CRoot, container);
+
+      const nodes = matchAll(rootNode, "C1>C2");
+
+      // Can't be zero, in any case
+      expect(nodes.length).not.toBe(0);
+      // Check that only one node is yielded
+      expect(nodes.length).toBe(1);
+      // Check that type is correct
+      expect((nodes[0] as FiberNodeForComponentClass).type).toBe(C2);
+      expect((nodes[0] as FiberNodeForComponentClass).type).not.toBe(C1);
+    });
+
+    it("should not work with child selector for nth-level descendant", () => {
+      const [C1, C2, C3] = createClassComponents(["C1", "C2", "C3"]);
+      function CRoot() {
+        return (
+          <C1>
+            <C2>
+              <C3 />
+            </C2>
+          </C1>
+        );
+      }
+      const rootNode = mountAndGetRootNode(CRoot, container);
+
+      const nodes = matchAll(rootNode, "C1>C3");
+
+      // No matcch found
+      expect(nodes.length).toBe(0);
+    });
   });
 });
