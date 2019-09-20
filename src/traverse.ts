@@ -4,6 +4,7 @@ import { FiberNode } from "./mocked-types";
 interface TTraverseConfig {
   order?: Array<"self" | "child" | "sibling">;
   skipSiblingForStartNode?: boolean;
+  skipSelfForStartNode?: boolean;
 }
 
 /**
@@ -69,19 +70,23 @@ function* traverseGenerator(
   node: FiberNode,
   {
     order = ["self", "child", "sibling"],
-    skipSiblingForStartNode = true
+    skipSiblingForStartNode = true,
+    skipSelfForStartNode = false
   }: TTraverseConfig = {}
 ): IterableIterator<FiberNode> {
   let skipChild = false,
-    skipSibling = skipSiblingForStartNode;
+    skipSibling = skipSiblingForStartNode,
+    skipSelf = skipSelfForStartNode;
 
   function* traverseSelf() {
-    const controlInput:
-      | { skipChild?: boolean; skipSibling?: boolean }
-      | undefined = yield node;
+    if (!skipSelf) {
+      const controlInput:
+        | { skipChild?: boolean; skipSibling?: boolean }
+        | undefined = yield node;
 
-    if (controlInput !== undefined) {
-      ({ skipChild = skipChild, skipSibling = skipSibling } = controlInput);
+      if (controlInput !== undefined) {
+        ({ skipChild = skipChild, skipSibling = skipSibling } = controlInput);
+      }
     }
   }
 
@@ -90,7 +95,8 @@ function* traverseGenerator(
       const nextNode = node.child;
       yield* traverseGenerator(nextNode, {
         order,
-        skipSiblingForStartNode: false
+        skipSiblingForStartNode: false,
+        skipSelfForStartNode: false
       });
     }
   }
@@ -100,7 +106,8 @@ function* traverseGenerator(
       const nextNode = node.sibling;
       yield* traverseGenerator(nextNode, {
         order,
-        skipSiblingForStartNode: false
+        skipSiblingForStartNode: false,
+        skipSelfForStartNode: false
       });
     }
   }
