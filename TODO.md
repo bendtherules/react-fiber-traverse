@@ -25,3 +25,4 @@
 
 13. Fix es5, downLevelIteration with generator iteration
 14. Tests for match
+15. **Catch throw in generator**
