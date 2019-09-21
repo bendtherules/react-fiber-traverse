@@ -89,7 +89,7 @@ function getRootFiberNodeFromDOM(startElement?: Element): FiberNode | null {
   }
 
   let returnFiberNode = null;
-  for (const childNode of startElement.children) {
+  for (const childNode of [].slice.call(startElement.children)) {
     returnFiberNode = getRootFiberNodeFromDOM(childNode);
     if (returnFiberNode !== null) {
       return returnFiberNode;
