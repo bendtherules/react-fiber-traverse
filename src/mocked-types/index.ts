@@ -44,16 +44,6 @@ export interface FiberNodeForInstrinsicElement {
   stateNode: HTMLElement;
 }
 
-export interface FiberNodeForInstrinsicElement {
-  child: FiberNode | null;
-  sibling: FiberNode | null;
-
-  elementType: keyof JSX.IntrinsicElements;
-  type: keyof JSX.IntrinsicElements;
-
-  stateNode: HTMLElement;
-}
-
 export interface FiberNodeForTextNode {
   child: null;
   sibling: FiberNode | null;
