@@ -1,36 +1,36 @@
 {
   "dist/react-fiber-traverse.cjs.development.js": {
-    "bundled": 12379,
-    "minified": 5465,
-    "gzipped": 1553
+    "bundled": 19424,
+    "minified": 8388,
+    "gzipped": 2612
   },
   "dist/react-fiber-traverse.cjs.production.js": {
-    "bundled": 12379,
-    "minified": 5465,
-    "gzipped": 1553
+    "bundled": 19424,
+    "minified": 8388,
+    "gzipped": 2612
   },
   "dist/react-fiber-traverse.esm.js": {
-    "bundled": 12017,
-    "minified": 5161,
-    "gzipped": 1468,
+    "bundled": 19124,
+    "minified": 8112,
+    "gzipped": 2537,
     "treeshaked": {
       "rollup": {
-        "code": 49,
-        "import_statements": 49
+        "code": 31,
+        "import_statements": 31
       },
       "webpack": {
-        "code": 1066
+        "code": 1048
       }
     }
   },
   "dist/react-fiber-traverse.umd.development.js": {
-    "bundled": 37610,
-    "minified": 10548,
-    "gzipped": 3614
+    "bundled": 34569,
+    "minified": 11581,
+    "gzipped": 4230
   },
   "dist/react-fiber-traverse.umd.production.js": {
-    "bundled": 37610,
-    "minified": 10548,
-    "gzipped": 3614
+    "bundled": 34569,
+    "minified": 11581,
+    "gzipped": 4230
   }
 }
