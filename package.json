@@ -66,7 +66,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.4",
-    "css-what": "^3.2.0",
+    "css-what": "^5.0.1",
     "prop-types": "^15.7.2"
   },
   "devDependencies": {
